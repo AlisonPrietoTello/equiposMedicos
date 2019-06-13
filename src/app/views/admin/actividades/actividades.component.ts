@@ -1,0 +1,50 @@
+import { Component, OnInit, OnDestroy} from '@angular/core';
+import { AppService } from '../../../app.service';
+import { Subject } from 'rxjs';
+@Component({
+  selector: 'app-actividades',
+  templateUrl: './actividades.component.html',
+  styleUrls: ['./actividades.component.scss']
+})
+export class ActividadesComponent implements OnInit, OnDestroy {
+  //paginador
+  dtOptions: DataTables.Settings = {};
+  dtTrigger: Subject<any> = new Subject();
+  public protocolo:any;
+  public actividad:any;
+  public estado:string;
+
+  constructor( public service: AppService) { 
+    this.estado='proto';
+  }
+
+  ngOnInit() {
+   this.listarProtocolo();
+   this.dtOptions = {
+    pagingType: 'full_numbers',
+    pageLength: 5
+  };
+  }
+
+  //listar protocolo 
+  public listarProtocolo(){
+    this.service.getProtocolos().subscribe(
+      result => {console.log(result),this.protocolo=result,
+        this.dtTrigger.next();
+      } );
+
+  }
+  //listar actividad por protocolo
+  public listarActividad(id){
+    this.service.getActividadesPorProtocolos(id).subscribe(
+      data =>{console.log(data),this.actividad=data,this.dtTrigger.next();
+      }
+    )
+  }
+
+  ngOnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    this.dtTrigger.unsubscribe();
+  }
+
+}

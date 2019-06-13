@@ -1,0 +1,28 @@
+<div class="row  d-flex justify-content-center">
+    <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Protocolos
+        </div>
+        <div class="card-body">
+          <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of instrumento">
+                <td>{{item.idInstrumentos}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.marca}}</td>
+                <td>{{item.modelo}}</td>
+              </tr>
+            </tbody>
+          </table>
+    
+        </div>
+      </div>
+</div>
