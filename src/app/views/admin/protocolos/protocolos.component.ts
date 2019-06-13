@@ -1,4 +1,4 @@
-import { Component, OnIni, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppService } from '../../../app.service';
 import { Subject } from 'rxjs';
 @Component({
