@@ -7,27 +7,24 @@
       <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
         <thead>
           <tr>
-            <th>Protocolo</th>
+            <th>#</th>
             <th>Codigo</th>
+            <th>Referencia</th>
             <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Revision</th>
-            <th>Responsable</th>
-            <th>Acciones</th>
+            <th>Protocolo</th>
+            <th>Estado</th>
+            <th>Tipo</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of protocolo">
-            <td>{{item.idProtocolo}}</td>
+          <tr *ngFor="let item of equipo">
+            <td>{{item.idEquipos}}</td>
             <td>{{item.codigo}}</td>
+            <td>{{item.referencia}}</td>
             <td>{{item.nombre}}</td>
-            <td>{{item.descripcion}}</td>
-            <td>{{item.revision}}</td>
-            <td>{{item.responsable}}</td>
-            <td><button type="button" class="btn btn-brand btn-behance"
-                (click)="estado='actividad';listarActividad(item.idProtocolo)">
-                <i class="fa fa-eye"></i>
-              </button></td>
+            <td>{{item.fk_protocolo}}</td>
+            <td>{{item.estado}}</td>
+            <td>{{item.fk_tipo}}</td>
           </tr>
         </tbody>
       </table>

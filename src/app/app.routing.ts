@@ -47,10 +47,6 @@ export const routes: Routes = [
         loadChildren: './views/admin/admin.module#AdminModule'
       },
       {
-        path: 'base',
-        loadChildren: './views/base/base.module#BaseModule'
-      },
-      {
         path: 'test',
         loadChildren: './views/test/test.module#TestModule'
       },
