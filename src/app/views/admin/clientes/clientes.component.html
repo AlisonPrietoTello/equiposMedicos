@@ -1,3 +1,47 @@
-<p>
-  clientes works!
-</p>
+<div class="spinner-border text-primary loading" role="status" *ngIf="loading">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="row" (titulo)="setTitulo($event)" [@enterAnimation]>
+  <div class="row d-flex justify-content-center">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Clientes
+      </div>
+      <div class="card-body">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Documento</th>
+              <th>Nombre</th>
+              <th>Nombre corto</th>
+              <th>Direccion</th>
+              <th>Telefono fijo</th>
+              <th>Telefono celular</th>
+              <th>Email</th>
+              <th>Ciudad</th>
+              <th>Atencion</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cliente">
+              <td>{{item.idTerceros}}</td>
+              <td>{{item.documento}}</td>
+              <td>{{item.nombre}}</td>
+              <td>{{item.nombreCorto}}</td>
+              <td>{{item.direccion}}</td>
+              <td>{{item.telefonoFijo}}</td>
+              <td>{{item.telefonoCelular}}</td>
+              <td>{{item.email}}</td>
+              <td>{{item.ciudad}}</td>
+              <td>{{item.atencion}}</td>
+              <td>{{item.estado}}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+      </div>
+    </div>
+  </div>
+</div>

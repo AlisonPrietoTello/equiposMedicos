@@ -9,13 +9,22 @@ import { Subject } from 'rxjs';
 })
 export class EquiposComponent implements OnInit, OnDestroy {
   public equipo:any;
-
+  public loading:boolean;
+  //paginador
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
-  constructor(public service: AppService) { }
+  constructor(public service: AppService) {
+    this.loading=true;
+   }
+  //listar Equipos
   public listarEquipos(){
     this.service.getEquipos().subscribe(
       result=>{console.log(result),this.equipo=result,  this.dtTrigger.next();
+        if(!this.service){
+          alert('Error en el servidor');
+        }else{  
+          this.loading=false;
+        }
       }
     )
   }

@@ -13,9 +13,11 @@ export class ActividadesComponent implements OnInit, OnDestroy {
   public protocolo:any;
   public actividad:any;
   public estado:string;
+  public loading:boolean;
 
   constructor( public service: AppService) { 
     this.estado='proto';
+    this.loading=true;
   }
 
   ngOnInit() {
@@ -31,6 +33,11 @@ export class ActividadesComponent implements OnInit, OnDestroy {
     this.service.getProtocolos().subscribe(
       result => {console.log(result),this.protocolo=result,
         this.dtTrigger.next();
+        if(!this.service){
+          alert('Error en el servidor');
+        }else{  
+          this.loading=false;
+        }
       } );
 
   }
@@ -38,6 +45,11 @@ export class ActividadesComponent implements OnInit, OnDestroy {
   public listarActividad(id){
     this.service.getActividadesPorProtocolos(id).subscribe(
       data =>{console.log(data),this.actividad=data,this.dtTrigger.next();
+        if(!this.service){
+          alert('Error en el servidor');
+        }else{
+          this.loading=false;
+        }
       }
     )
   }

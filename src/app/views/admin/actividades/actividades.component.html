@@ -1,3 +1,6 @@
+<div class="spinner-border text-primary loading" role="status" *ngIf="loading">
+  <span class="sr-only">Loading...</span>
+</div>
 <div class="row">
   <div class="card" *ngIf="estado == 'proto'">
     <div class="card-header">
@@ -59,6 +62,7 @@
       </table>
 
     </div>
+    
   </div>
 
 
