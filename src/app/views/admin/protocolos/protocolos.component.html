@@ -1,37 +1,54 @@
-<div class="row">
-    <div class="card" *ngIf="estado == 'proto'">
-        <div class="card-header">
-          <i class="fa fa-align-justify"></i> Protocolos
-        </div>
-        <div class="card-body">
-          <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
-            <thead>
-              <tr>
-                <th>Protocolo</th>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Revision</th>
-                <th>Responsable</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of protocolo">
-                <td>{{item.idProtocolo}}</td>
-                <td>{{item.codigo}}</td>
-                <td>{{item.nombre}}</td>
-                <td>{{item.descripcion}}</td>
-                <td>{{item.revision}}</td>
-                <td>{{item.responsable}}</td>
-                <td><button type="button" class="btn btn-brand btn-behance"
-                    (click)="estado='actividad';listarActividad(item.idProtocolo)">
-                    <i class="fa fa-eye"></i>
-                  </button></td>
-              </tr>
-            </tbody>
-          </table>
-    
-        </div>
-      </div>
+<div class="spinner-border text-primary loading" role="status" *ngIf="loading">
+  <span class="sr-only">Loading...</span>
 </div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+    </div>
+    <input type="search" class="form-control" placeholder="Buscar" >
+  </div>
+  
+<div class="card" *ngFor="let item of protocolo" >
+    <div class="card-body">
+      <button type="button" class="btn btn-primary item">
+        <span class="sr-only">{{item.idProtocolo}}</span>
+      </button> <p class="nombre"><b>{{item.nombre}}</b></p>
+      <p class="codigo">{{item.codigo}}</p>
+      <p class="responsable">{{item.responsable}}</p>
+      <p class="hora">{{item.revision}}</p>
+      <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button>
+      <button type="button" class="btn btn-pill btn-primary"></button>
+    </div>
+  </div>
+<div class="row d-flex justify-content-center" *ngIf="estado=='protocoloid'">
+  <div class="card">
+    <div class="card-header">
+      <i class="fa fa-align-justify"></i> Instrumentos
+    </div>
+    <div class="card-body">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover table"
+        style="width: 100%">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of instrumento">
+            <td>{{item.fkInstrumento.idInstrumentos}}</td>
+            <td>{{item.fkInstrumento.nombre}}</td>
+            <td>{{item.fkInstrumento.marca}}</td>
+            <td>{{item.fkInstrumento.modelo}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-primary volver" (click)="estado='protocolo'" *ngIf="estado=='protocoloid'">
+  volver
+</button>

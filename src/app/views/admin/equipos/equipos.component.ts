@@ -31,6 +31,10 @@ export class EquiposComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.listarEquipos();
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5
+    };
   }
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event

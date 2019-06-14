@@ -47,24 +47,8 @@ export const routes: Routes = [
         loadChildren: './views/admin/admin.module#AdminModule'
       },
       {
-        path: 'buttons',
-        loadChildren: './views/buttons/buttons.module#ButtonsModule'
-      },
-      {
-        path: 'charts',
-        loadChildren: './views/chartjs/chartjs.module#ChartJSModule'
-      },
-      {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
-      },
-      {
-        path: 'icons',
-        loadChildren: './views/icons/icons.module#IconsModule'
-      },
-      {
-        path: 'notifications',
-        loadChildren: './views/notifications/notifications.module#NotificationsModule'
       },
       {
         path: 'theme',

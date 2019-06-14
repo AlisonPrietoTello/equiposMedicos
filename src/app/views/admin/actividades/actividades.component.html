@@ -34,12 +34,12 @@
           </tr>
         </tbody>
       </table>
-
     </div>
   </div>
+</div>
   <!--Card Actividad-->
-
-  <div class="card" *ngIf="estado=='actividad'">
+<div class="row"*ngIf="estado=='actividad'"> 
+  <div class="card" style="width: 100%; ">
     <div class="card-header">
       <i class="fa fa-align-justify"></i> Actividades 
     </div>
@@ -60,10 +60,10 @@
           </tr>
         </tbody>
       </table>
-
-    </div>
-    
+    </div>  
   </div>
-
-
+  <button type="button" class="btn btn-primary volver" (click)="estado='proto'" >
+      volver
+     </button>  
 </div>
+ 
