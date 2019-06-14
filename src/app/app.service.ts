@@ -52,4 +52,21 @@ export class AppService {
   public getTerceros() {
     return this.http.get(this.url + 'terceros/list', httpOptions);
   }
+
+  // @Get Cotizaciones
+  public getCotizaciones() {
+    return this.http.get(this.url + 'cotizaciones/list', httpOptions);
+  }
+
+  
+
+  // Modal
+  modal: boolean = false;
+  abrirModal() {
+    this.modal = true;
+  }
+  cerrarModal() {
+    this.modal = false;
+  }
+
 }

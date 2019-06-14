@@ -7,6 +7,7 @@ import { DefaultLayoutComponent } from './containers';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
+import { CotizarComponent } from './views/cotizar/cotizar.component';
 
 export const routes: Routes = [
   {
@@ -46,34 +47,24 @@ export const routes: Routes = [
         path: 'admin',
         loadChildren: './views/admin/admin.module#AdminModule'
       },
-      {
-        path: 'base',
-        loadChildren: './views/base/base.module#BaseModule'
-      },
-      {
+
+/*       {
         path: 'test',
         loadChildren: './views/test/test.module#TestModule'
-      },
-      {
+      }, */
+/*       {
         path: 'buttons',
         loadChildren: './views/buttons/buttons.module#ButtonsModule'
-      },
-      {
+      }, */
+/*       {
         path: 'charts',
         loadChildren: './views/chartjs/chartjs.module#ChartJSModule'
-      },
+      }, */
       {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
-      {
-        path: 'icons',
-        loadChildren: './views/icons/icons.module#IconsModule'
-      },
-      {
-        path: 'notifications',
-        loadChildren: './views/notifications/notifications.module#NotificationsModule'
-      },
+
       {
         path: 'theme',
         loadChildren: './views/theme/theme.module#ThemeModule'
@@ -81,7 +72,8 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: './views/widgets/widgets.module#WidgetsModule'
-      }
+      },
+      { path: 'cotizar', component: CotizarComponent}
     ]
   },
   { path: '**', component: P404Component }
