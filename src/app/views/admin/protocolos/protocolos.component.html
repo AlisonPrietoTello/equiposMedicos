@@ -1,25 +1,41 @@
 <div class="spinner-border text-primary loading" role="status" *ngIf="loading">
-  <span class="sr-only">Loading...</span>
+    <span class="sr-only">Loading...</span>
+  </div>
+<div class="row">
+  <div class="col-8">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+        </div>
+        <input type="search" class="form-control" placeholder="Buscar" [(ngModel)]="text">
+      </div>
+  </div>
+  <div class="col-4">
+    <button type="button" class="btn btn-brand btn-behance">
+      <i class="fa fa-plus"></i><span>Nuevo Protocolo</span>
+    </button>
+  </div>
 </div>
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+
+
+<div class="card" *ngFor="let item of protocolo | filter: {nombre:text,codigo:text,responsable:text,hora:text}">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-8">
+        <button type="button" class="btn btn-primary item">
+          <span class="sr-only">{{item.idProtocolo}}</span>
+        </button>
+        <p class="nombre"><b>{{item.nombre}}</b></p>
+        <p class="codigo">{{item.codigo}}</p>
+        <p class="responsable">{{item.responsable}}</p>
+        <p class="hora">{{item.revision}}</p>
+      </div>
+      <div class="col-sm-4">
+        <button type="button" class="btn btn-pill btn-primary ver"><i class="fa fa-eye"></i></button><br>
+      </div>
     </div>
-    <input type="search" class="form-control" placeholder="Buscar" >
   </div>
-  
-<div class="card" *ngFor="let item of protocolo" >
-    <div class="card-body">
-      <button type="button" class="btn btn-primary item">
-        <span class="sr-only">{{item.idProtocolo}}</span>
-      </button> <p class="nombre"><b>{{item.nombre}}</b></p>
-      <p class="codigo">{{item.codigo}}</p>
-      <p class="responsable">{{item.responsable}}</p>
-      <p class="hora">{{item.revision}}</p>
-      <button type="button" class="btn btn-primary"><i class="fa fa-eye"></i></button>
-      <button type="button" class="btn btn-pill btn-primary"></button>
-    </div>
-  </div>
+</div>
 <div class="row d-flex justify-content-center" *ngIf="estado=='protocoloid'">
   <div class="card">
     <div class="card-header">

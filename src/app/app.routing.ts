@@ -7,6 +7,7 @@ import { DefaultLayoutComponent } from './containers';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
+import { CotizarComponent } from './views/cotizar/cotizar.component';
 
 export const routes: Routes = [
   {
@@ -57,7 +58,8 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: './views/widgets/widgets.module#WidgetsModule'
-      }
+      },
+      { path: 'cotizar', component: CotizarComponent}
     ]
   },
   { path: '**', component: P404Component }

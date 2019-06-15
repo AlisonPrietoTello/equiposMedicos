@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../app.service';
 import { Subject } from 'rxjs';
 @Component({
@@ -6,16 +6,16 @@ import { Subject } from 'rxjs';
   templateUrl: './protocolos.component.html',
   styleUrls: ['./protocolos.component.scss']
 })
-export class ProtocolosComponent implements OnInit, OnDestroy {
+export class ProtocolosComponent implements OnInit {
 
   public protocolo: any;
   public loading: boolean;
   public estado:string;
   public instrumento:any;
+  public text:string;
 
   //paginador
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject();
+
 
   constructor(public service: AppService) {
     this.loading = true;
@@ -25,8 +25,7 @@ export class ProtocolosComponent implements OnInit, OnDestroy {
   public listarProtocolo() {
     this.service.getProtocolos().subscribe(
       result => {
-        console.log(result), this.protocolo = result,
-        this.dtTrigger.next();
+        console.log(result), this.protocolo = result
         if (!this.service) {
           alert('Error en el servidor');
         } else {
@@ -38,7 +37,7 @@ export class ProtocolosComponent implements OnInit, OnDestroy {
   public listarProtoco(id){
     this.service.getInstrumentosPorProtocolos(id).subscribe(
       result=>{
-        console.log(result),this.instrumento= result,this.dtTrigger.next();
+        console.log(result),this.instrumento= result
         if (!this.instrumento) {
           alert('Error en el servidor');
         } else {
@@ -48,14 +47,8 @@ export class ProtocolosComponent implements OnInit, OnDestroy {
   }
   ngOnInit() {
     this.listarProtocolo();
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 5
-    };
+ 
   }
-  ngOnDestroy(): void {
-    // Do not forget to unsubscribe the event
-    this.dtTrigger.unsubscribe();
-  }
+ 
 
 }
