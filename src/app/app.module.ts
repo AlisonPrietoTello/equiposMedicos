@@ -5,6 +5,9 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { AppService } from './app.service';
+import {MatTabsModule} from '@angular/material/tabs'; 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
 };
@@ -54,7 +57,9 @@ import { CotizarComponent } from './views/cotizar/cotizar.component';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
   ],
   declarations: [
     AppComponent,
@@ -66,7 +71,7 @@ import { CotizarComponent } from './views/cotizar/cotizar.component';
   ],
   providers: [AppService, {
     provide: LocationStrategy,
-    useClass: HashLocationStrategy,
+    useClass: HashLocationStrategy
   }],
   bootstrap: [ AppComponent ]
 })
