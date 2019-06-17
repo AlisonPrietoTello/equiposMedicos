@@ -58,7 +58,10 @@ export class AppService {
     return this.http.get(this.url + 'cotizaciones/list', httpOptions);
   }
 
-  
+  // @Get Clientes
+  public getClientes() {
+    return this.http.get(this.url + 'clientes/list')
+  }
 
   // Modal
   modal: boolean = false;

@@ -20,6 +20,7 @@ import { DefaultLayoutComponent } from './containers';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
+import {DropdownModule} from 'primeng/dropdown';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -42,6 +43,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { CotizarComponent } from './views/cotizar/cotizar.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -58,8 +60,13 @@ import { CotizarComponent } from './views/cotizar/cotizar.component';
     TabsModule.forRoot(),
     ChartsModule,
     HttpClientModule,
+<<<<<<< Updated upstream
     MatTabsModule,
     BrowserAnimationsModule,
+=======
+    FormsModule,
+    DropdownModule,
+>>>>>>> Stashed changes
   ],
   declarations: [
     AppComponent,

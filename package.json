@@ -27,6 +27,11 @@
   },
   "private": true,
   "dependencies": {
+<<<<<<< Updated upstream
+=======
+    "@angular/animations": "^7.2.15",
+    "@angular/cdk": "^7.2.6",
+>>>>>>> Stashed changes
     "@angular/common": "^7.2.6",
     "@angular/compiler": "^7.2.6",
     "@angular/core": "^7.2.6",
@@ -55,6 +60,8 @@
     "ng2-completer": "^2.0.8",
     "ngx-bootstrap": "^3.2.0",
     "ngx-perfect-scrollbar": "^7.2.1",
+    "primeicons": "^1.0.0",
+    "primeng": "^8.0.0",
     "rxjs": "^6.4.0",
     "simple-line-icons": "^2.4.1",
     "ts-helpers": "^1.1.2",
