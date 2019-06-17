@@ -28,7 +28,13 @@ export class EquiposComponent implements OnInit, OnDestroy {
       }
     )
   }
-
+    // Modal
+    abrirModal() {
+      this.service.abrirModal();
+    }
+    cerrarModal() {
+      this.service.cerrarModal();
+    }
   ngOnInit() {
     this.listarEquipos();
     this.dtOptions = {

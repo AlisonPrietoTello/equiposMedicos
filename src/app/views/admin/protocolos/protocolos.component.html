@@ -16,15 +16,11 @@
     </button>
   </div>
 </div>
-
-
 <div class="card" *ngFor="let item of protocolo | filter: {nombre:text,codigo:text,responsable:text,hora:text}">
   <div class="card-body">
     <div class="row">
       <div class="col-sm-8">
-        <button type="button" class="btn btn-primary item">
-          <span class="sr-only">{{item.idProtocolo}}</span>
-        </button>
+          <div class="item">{{item.idProtocolo}}</div>
         <p class="nombre"><b>{{item.nombre}}</b></p>
         <p class="codigo">{{item.codigo}}</p>
         <p class="responsable">{{item.responsable}}</p>

@@ -20,9 +20,7 @@
   <div class="card-body">
     <div class="row">
       <div class="col-sm-8">
-        <button type="button" class="btn btn-primary item">
-          {{item.idProtocolo}}
-        </button>
+          <div class="item">{{item.idProtocolo}}</div>
         <p class="nombre"><b>{{item.nombre}}</b></p>
         <p class="codigo">{{item.codigo}}</p>
         <p class="responsable">{{item.responsable}}</p>
@@ -34,7 +32,6 @@
     </div>
   </div>
 </div>
-<p>Hola lazlo </p>
   <!--Card Actividad-->
 <div class="row"*ngIf="estado=='actividad'"> 
   <div class="card" style="width: 100%; ">

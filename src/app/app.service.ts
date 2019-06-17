@@ -58,8 +58,6 @@ export class AppService {
     return this.http.get(this.url + 'cotizaciones/list', httpOptions);
   }
 
-  
-
   // Modal
   modal: boolean = false;
   abrirModal() {
