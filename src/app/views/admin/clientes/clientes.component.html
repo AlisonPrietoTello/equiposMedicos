@@ -1,47 +1,36 @@
 <div class="spinner-border text-primary loading" role="status" *ngIf="loading">
   <span class="sr-only">Loading...</span>
 </div>
-<div class="row" (titulo)="setTitulo($event)" [@enterAnimation]>
-  <div class="row d-flex justify-content-center">
-    <div class="card">
-      <div class="card-header">
-        <i class="fa fa-align-justify"></i> Clientes
-      </div>
-      <div class="card-body">
-        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Documento</th>
-              <th>Nombre</th>
-              <th>Nombre corto</th>
-              <th>Direccion</th>
-              <th>Telefono fijo</th>
-              <th>Telefono celular</th>
-              <th>Email</th>
-              <th>Ciudad</th>
-              <th>Atencion</th>
-              <th>Estado</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of cliente">
-              <td>{{item.idTerceros}}</td>
-              <td>{{item.documento}}</td>
-              <td>{{item.nombre}}</td>
-              <td>{{item.nombreCorto}}</td>
-              <td>{{item.direccion}}</td>
-              <td>{{item.telefonoFijo}}</td>
-              <td>{{item.telefonoCelular}}</td>
-              <td>{{item.email}}</td>
-              <td>{{item.ciudad}}</td>
-              <td>{{item.atencion}}</td>
-              <td>{{item.estado}}</td>
-            </tr>
-          </tbody>
-        </table>
-  
+<div class="row linea">
+    <div class="col-8">
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+          </div>
+          <input type="search" class="form-control" placeholder="Buscar" [(ngModel)]="text">
+        </div>
+    </div>
+    <div class="col-4">
+      <button type="button" class="btn btn-brand btn-behance">
+        <i class="fa fa-plus"></i><span>Nuevo Protocolo</span>
+      </button>
+    </div>
+  </div>
+  <div class="card" *ngFor="let item of cliente | filter: {nombre:text,codigo:text,responsable:text,hora:text}">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-8">
+          <button type="button" class="btn btn-primary item">
+            {{item.idTerceros}}
+          </button>
+          <p class="nombre"><b>{{item.nombre}}</b></p>
+          <p class="codigo">{{item.documento}}</p>
+          <p class="responsable">{{item.ciudad}}</p>
+         <!--<td>{{item.estado}}</td>--> 
+        </div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-pill btn-primary ver"><i class="fa fa-eye"></i></button><br>
+        </div>
       </div>
     </div>
   </div>
-</div>

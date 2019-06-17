@@ -1,33 +1,38 @@
 <div class="spinner-border text-primary loading" role="status" *ngIf="loading">
   <span class="sr-only">Loading...</span>
 </div>
-<div class="row d-flex justify-content-center">
-  <div class="card">
-    <div class="card-header">
-      <i class="fa fa-align-justify"></i> Protocolos
+<div class="row linea">
+    <div class="col-8">
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+          </div>
+          <input type="search" class="form-control" placeholder="Buscar" [(ngModel)]="text">
+        </div>
     </div>
-    <div class="card-body">
-      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover" >
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Codigo</th>
-            <th>Referencia</th>
-            <th>Nombre</th>
-            <th>Estado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of equipo">
-            <td>{{item.idEquipos}}</td>
-            <td>{{item.codigo}}</td>
-            <td>{{item.referencia}}</td>
-            <td>{{item.nombre}}</td>
-            <td>{{item.estado}}</td>
-          </tr>
-        </tbody>
-      </table>
-
+    <div class="col-4">
+      <button type="button" class="btn btn-brand btn-behance">
+        <i class="fa fa-plus"></i><span>Nuevo Protocolo</span>
+      </button>
     </div>
   </div>
-</div>
+  <div class="card" *ngFor="let item of equipo | filter: {nombre:text,codigo:text,responsable:text,hora:text}">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-8">
+          <button type="button" class="btn btn-primary item">
+            <span class="sr-only">{{item.idEquipos}}</span>
+          </button>
+          <p class="nombre"><b>{{item.nombre}}</b></p>
+          <p class="codigo">{{item.codigo}}</p>
+          <p class="responsable">{{item.referencia}}</p>
+         <!--<td>{{item.estado}}</td>--> 
+        </div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-pill btn-primary ver"><i class="fa fa-eye"></i></button><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
