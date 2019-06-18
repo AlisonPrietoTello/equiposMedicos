@@ -39,6 +39,9 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { CotizarComponent } from './views/cotizar/cotizar.component';
+import { OrdentrabajoComponent } from './views/ordenTrabajo/ordentrabajo.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -54,7 +57,8 @@ import { CotizarComponent } from './views/cotizar/cotizar.component';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   declarations: [
     AppComponent,
@@ -63,6 +67,7 @@ import { CotizarComponent } from './views/cotizar/cotizar.component';
     P500Component,
     LoginComponent,
     CotizarComponent,
+    OrdentrabajoComponent,
   ],
   providers: [AppService, {
     provide: LocationStrategy,

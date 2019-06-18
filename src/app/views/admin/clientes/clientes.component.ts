@@ -1,6 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { AppService } from '../../../app.service';
 import { Subject } from 'rxjs';
+import Swal from 'sweetalert2'
 import { trigger, transition, style, animate } from '@angular/animations';
 @Component({
   selector: 'app-clientes',
@@ -25,6 +26,28 @@ export class ClientesComponent implements OnInit, OnDestroy {
   //variables
   public loading: boolean;
   public cliente: any;
+  public clienten:any;
+  //input
+  @Input()
+  public nombre:string;
+  @Input()
+  public documento:any;
+  @Input()
+  public nombrec:any;
+  @Input()
+  public direccion:any;
+  @Input()
+  public telefono:any;
+  @Input()
+  public telefonoc:any;
+  @Input()
+  public email:any;
+  @Input()
+  public ciudad:any;
+  @Input()
+  public atencion:any;
+
+
   //paginador
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
@@ -33,7 +56,7 @@ export class ClientesComponent implements OnInit, OnDestroy {
   }
   //listar clientes
   public listarClientes() {
-    this.service.getTerceros().subscribe(
+    this.service.getCliente().subscribe(
       result => {
         console.log(result), this.cliente = result, this.dtTrigger.next();
         if (!this.service) {
@@ -44,6 +67,25 @@ export class ClientesComponent implements OnInit, OnDestroy {
       }
     );
   }
+  //Agregar nuevo cliente
+  public agregarCliente(){
+    this.clienten={
+      "nombre": this.nombre,
+      "nombreCorto": this.nombrec,
+      "documento":this.documento,
+      "telefonoFijo":this.telefono,
+      "telefonoCelular": this.telefonoc,
+      "ciudad": this.ciudad,
+      "direccion":this.direccion,
+      "email":this.email,
+      "atencion":this.atencion
+      
+    }
+    this.service.post('clientes/new',this.clienten).subscribe(
+      result=>{console.log(result), this.success('');
+        this.listarClientes();}
+    )
+  }
   // Modal
   abrirModal() {
     this.service.abrirModal();
@@ -51,6 +93,7 @@ export class ClientesComponent implements OnInit, OnDestroy {
   cerrarModal() {
     this.service.cerrarModal();
   }
+
   ngOnInit() {
     this.listarClientes();
   }
@@ -58,4 +101,18 @@ export class ClientesComponent implements OnInit, OnDestroy {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
   }
+  //alertas
+  success(titulo: string){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000
+  });
+  
+  Toast.fire({
+    type: 'success',
+    title: 'Cliente agregado exitosamente!'
+  })
+  } 
 }

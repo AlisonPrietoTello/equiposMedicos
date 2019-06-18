@@ -57,6 +57,19 @@ export class AppService {
   public getCotizaciones() {
     return this.http.get(this.url + 'cotizaciones/list', httpOptions);
   }
+  //@Get clientes
+  public getCliente(){
+    return this.http.get(this.url + 'clientes/list',httpOptions);
+  }
+  //@Get parametro por grupo
+  public getParametroGrupo(){
+    return this.http.get(this.url + 'parametro/filtro_empresa_grupo/1/2', httpOptions)
+  }
+  //@Post clientes
+  post(ruta: string, body: any){let repos = this.http.post<any>(this.url.concat(ruta), body, httpOptions); 
+  return repos;
+ }
+
 
   // Modal
   modal: boolean = false;
