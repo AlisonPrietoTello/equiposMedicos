@@ -1,8 +1,6 @@
 <!-- Button trigger modal -->
-<button (click)="abrirModal()" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  +
-</button>
-<span *ngFor="let item of dataClientes">{{item.nombre}}</span>
+
+<!-- <span *ngFor="let item of dataClientes">{{item.nombre}}</span> -->
 
 <style>
   mat-tab {
@@ -97,6 +95,11 @@
   <div class="card">
     <div class="card-header">
       <i class="fa fa-align-justify"></i> Protocolos
+
+      <button type="button" class="btn btn-primary" (click)="estado='cotizar';">
+              +
+            </button>
+
     </div>
     <div class="card-body">
       <table datatable class="row-border hover text-center">
@@ -179,21 +182,17 @@
           <input type="text" name="estado" id="" class="form-control" placeholder="">
         </div>
 
-          <h5>Buscar clientes</h5>
-   <mat-form-field style="width: 100%">
-     <mat-select placeholder="Clientes" [(ngModel)]="clienteSelected" #departamento  (keyup.enter)="seleccionarDepartamento(departamento.value)" >
-       <mat-option>
-         <ngx-mat-select-search [(ngModel)]="departamentoSearch"
-         [noEntriesFoundLabel]="'No se encontró el departamento'"
-         [placeholderLabel]="'Nombre del departamento'">
-        <div ngxMatSelectSearchClear><div class="ni ni-fat-remove"></div></div>
-       </ngx-mat-select-search>
-       </mat-option>
-       <mat-option *ngFor="let item of clientes | filter : searchText" >
-         {{item.nombre}}
-       </mat-option>
-     </mat-select>
-   </mat-form-field>
+<mat-form-field>
+    <mat-select placeholder="Cliente" #singleSelect>
+      <mat-option>
+        <ngx-mat-select-search [placeholderLabel]="'Nombre del cliente'"
+        [(ngModel)]="palabra_busqueda" [noEntriesFoundLabel]="'No se encontró el cliente'"></ngx-mat-select-search>
+      </mat-option>
+      <mat-option *ngFor="let cliente of clientes | filter:palabra_busqueda" [value]="cliente">
+        {{cliente.nombre}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
 
     </div>

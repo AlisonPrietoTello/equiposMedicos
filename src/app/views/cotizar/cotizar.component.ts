@@ -29,16 +29,11 @@ export class CotizarComponent implements OnInit {
     this.listarCotizaciones();
   }
 
+  
+
   public cotizaciones: any;
-
-  dataClientes: any;
-
-  items: SelectItem[];
-  item: string;
-  grupoClientes: any = new Array();
+  public palabra_busqueda: String;
   public estado: String;
-
-
 
 // Modal
 abrirModal() {
@@ -47,7 +42,6 @@ abrirModal() {
 cerrarModal() {
   this.service.cerrarModal();
 }
-
 
   //listar Cotizaciones 
   public listarCotizaciones() {

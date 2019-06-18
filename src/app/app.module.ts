@@ -46,7 +46,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { CotizarComponent } from './views/cotizar/cotizar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/search';
 
 
@@ -71,6 +71,7 @@ import { FilterPipe } from './pipes/search';
     MatFormFieldModule,
     MatSelectModule,
     NgxMatSelectSearchModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
