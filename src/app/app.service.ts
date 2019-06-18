@@ -65,10 +65,16 @@ export class AppService {
   public getParametroGrupo(){
     return this.http.get(this.url + 'parametro/filtro_empresa_grupo/1/2', httpOptions)
   }
+  //@Get Listar cotizacion por id 
+  public getListarCotizacion(id: string) {
+    return this.http.get(this.url + 'cotizaciones/1', httpOptions);
+  }
+
   //@Post clientes
   post(ruta: string, body: any){let repos = this.http.post<any>(this.url.concat(ruta), body, httpOptions); 
   return repos;
  }
+
 
 
   // Modal

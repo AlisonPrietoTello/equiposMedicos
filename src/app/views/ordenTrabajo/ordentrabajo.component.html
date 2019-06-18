@@ -1,33 +1,103 @@
-<div class="spinner-border text-primary loading" role="status" *ngIf="loading">
-  <span class="sr-only">Loading...</span>
+<div class="row">
+  <div class="col-6"><label for=""><b>N Cotizacion:</b>{{}}</label></div>
+  <div class="col-6"><label for=""><b>fecha:</b></label></div>
 </div>
 <div class="row">
-    <div class="col-8">
-      <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
-          </div>
-          <input type="search" class="form-control" placeholder="Buscar" [(ngModel)]="text">
-        </div>
-    </div>
-    <div class="col-4">
-      <button type="button" class="btn btn-brand btn-behance">
-        <i class="fa fa-plus"></i><span>Nuevo Instrumentos</span>
-      </button>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="item">{{item.idInstrumentos}}</div>
-          <p class="nombre"><b>{{item.nombre}}</b></p>
-          <p class="codigo">{{item.marca}}</p>
-          <p class="responsable">{{item.modelo}}</p>
-        </div>
-        <div class="col-sm-4">
-          <button type="button" class="btn btn-pill btn-primary ver"><i class="fa fa-eye"></i></button><br>
-        </div>
+  <div class="col-6"><label for=""><b>Cliente:</b></label></div>
+  <div class="col-6"><label for=""><b>NIT/C.C:</b></label></div>
+</div>
+<div class="row">
+  <div class="col-6"><label for=""><b>Contacto:</b></label></div>
+  <div class="col-6"><label for=""><b>Cargo del contac:</b></label>></div>
+</div>
+<div class="row">
+  <div class="col-6"><label for=""><b>Direccion:</b></label></div>
+  <div class="col-6"><label for=""><b>Telefono:</b></label></div>
+</div>
+<div class="row">
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Protocolos
+      </div>
+      <div class="card-body">
+        <table datatable class="row-border hover text-center">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Empresa</th>
+              <th>Sercio</th>
+              <th>Cantidad</th>
+              <th>Reportes</th>
+              <th>Responsable</th>
+              <th>Fecha cotizacion</th>
+              <th>Detalles</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
       </div>
     </div>
   </div>
+  <div class="col-4">
+    <div class="card detalles">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Herramienta:</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Gafas de seguridad
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Gorro
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Guantes desechables
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Tapabocas
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">
+              Bata
+            </label>
+          </div>
+          <div class="form-group">
+              <label for="exampleFormControlTextarea1">Riesgos:</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Comentario:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+      </div>
+    </div>
+  </div>
+</div>
