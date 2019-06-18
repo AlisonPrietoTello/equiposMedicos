@@ -5,7 +5,7 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { AppService } from './app.service';
-import {MatTabsModule} from '@angular/material/tabs'; 
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -13,6 +13,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 };
 
 import { AppComponent } from './app.component';
+import {MatInputModule} from '@angular/material/input';
 
 // Import containers
 import { DefaultLayoutComponent } from './containers';
@@ -21,6 +22,8 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import {DropdownModule} from 'primeng/dropdown';
+import { MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -44,6 +47,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { CotizarComponent } from './views/cotizar/cotizar.component';
 import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './pipes/search';
 
 
 @NgModule({
@@ -60,13 +64,13 @@ import { FormsModule } from '@angular/forms';
     TabsModule.forRoot(),
     ChartsModule,
     HttpClientModule,
-<<<<<<< Updated upstream
-    MatTabsModule,
     BrowserAnimationsModule,
-=======
     FormsModule,
     DropdownModule,
->>>>>>> Stashed changes
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    NgxMatSelectSearchModule,
   ],
   declarations: [
     AppComponent,
@@ -75,6 +79,7 @@ import { FormsModule } from '@angular/forms';
     P500Component,
     LoginComponent,
     CotizarComponent,
+    FilterPipe
   ],
   providers: [AppService, {
     provide: LocationStrategy,

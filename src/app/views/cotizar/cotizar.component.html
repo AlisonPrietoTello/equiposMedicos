@@ -5,89 +5,82 @@
 <span *ngFor="let item of dataClientes">{{item.nombre}}</span>
 
 <style>
-mat-tab {
-  display: block;
-  animation: none;
-  position: relative;
-}
+  mat-tab {
+    display: block;
+    animation: none;
+    position: relative;
+  }
 </style>
 
-<!-- HOLA ALISON -->
+
 
 <div *ngIf="service.modal" class="modal" tabindex="-1" role="dialog" style="display: block;">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-<<<<<<< Updated upstream
-        <h5 class="modal-title">Modal title</h5>
-=======
-        <h5 class="modal-title text-center uppercase font-weight-bolder">Nueva Cotización</h5>
->>>>>>> Stashed changes
+        <strong>
+          <h5 class="modal-title">Nueva Cotización</h5>
+        </strong>
         <button (click)="cerrarModal()" type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-<<<<<<< Updated upstream
       <div class="modal-body">
-        <h4 class="text-center">Actualizar cotizacion</h4>
-=======
-      <div class="modal-body container">
-        <h4 class="" *ngFor="let item of cotizaciones">
-          Empresa: {{item.fkEmpresa.nombreEmpresa}}</h4>
->>>>>>> Stashed changes
-        <hr>
-        <form action="">
+
+
+<!--
           <div class="row">
-            
-            <!-- Cliente -->
-            <h3>Content with Filters</h3>
-            <p-dropdown [options]="clientes" [(ngModel)]="clienteSeleccionado" filter="true">
-              <ng-template let-item pTemplate="selectedItem">
-<!--                 <img src="assets/showcase/images/demo/car/{{item.label}}.png"
-                  style="width:16px;vertical-align:middle" />
-                <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span> -->
-              </ng-template>
-              <ng-template let-car pTemplate="item">
-                <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
-                  <img src="assets/showcase/images/demo/car/{{car.label}}.png"
-                    style="width:24px;position:absolute;top:1px;left:5px" />
-                  <div style="font-size:14px;float:right;margin-top:4px">{{car.label}}</div>
-                </div>
-              </ng-template>
 
-            </p-dropdown>
-            <div class="form-group col-6">
-              <label for="viaticos">Viaticos</label>
-              <input type="text" name="viaticos" id="" class="form-control" placeholder="">
-            </div>
+          <p-dropdown [options]="cars" [(ngModel)]="selectedCar2" filter="true">
+            <ng-template let-item pTemplate="selectedItem">
+                           <img src="assets/showcase/images/demo/car/{{item.label}}.png" style="width:16px;vertical-align:middle" /> 
+              <span style="vertical-align:middle; margin-left: .5em">{{item.label}}</span>
+            </ng-template>
+            <ng-template let-car pTemplate="item">
+              <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                                <img src="assets/showcase/images/demo/car/{{car.label}}.png" style="width:24px;position:absolute;top:1px;left:5px"/> 
+                <div style="font-size:14px;float:right;margin-top:4px">{{car.label}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
 
-            <div class="form-group col-6">
-              <label for="vigencia">Vigencia</label>
-              <input type="text" name="vigencia" id="" class="form-control" placeholder="">
-            </div>
 
-            <div class="form-group col-6">
-              <label for="metodoPago">Metodo pago</label>
-              <input type="text" name="metodoPago" id="" class="form-control" placeholder="">
-            </div>
-
-            <div class="form-group col-6">
-              <label for="fecha">Fecha</label>
-              <input type="text" name="fecha" id="" class="form-control" placeholder="">
-            </div>
-
-            <div class="form-group col-6">
-              <label for="responsable">Responsable</label>
-              <input type="text" name="responsable" id="" class="form-control" placeholder="">
-            </div>
-
-            <div class="form-group col-6">
-              <label for="estado">Estado</label>
-              <input type="text" name="estado" id="" class="form-control" placeholder="">
-            </div>
-
+          <div class="form-group col-6">
+            <label for="viaticos">Viaticos</label>
+            <input type="text" name="viaticos" id="" class="form-control" placeholder="">
           </div>
-        </form>
+
+          <div class="form-group col-6">
+            <label for="vigencia">Vigencia</label>
+            <input type="text" name="vigencia" id="" class="form-control" placeholder="">
+          </div>
+
+          <div class="form-group col-6">
+            <label for="metodoPago">Metodo pago</label>
+            <input type="text" name="metodoPago" id="" class="form-control" placeholder="">
+          </div>
+
+          <div class="form-group col-6">
+            <label for="fecha">Fecha</label>
+            <input type="text" name="fecha" id="" class="form-control" placeholder="">
+          </div>
+
+          <div class="form-group col-6">
+            <label for="responsable">Responsable</label>
+            <input type="text" name="responsable" id="" class="form-control" placeholder="">
+          </div>
+
+          <div class="form-group col-6">
+            <label for="estado">Estado</label>
+            <input type="text" name="estado" id="" class="form-control" placeholder="">
+          </div>
+
+        </div>
+-->
+
+
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Save changes</button>
@@ -98,7 +91,9 @@ mat-tab {
 </div>
 
 
-<div class="row">
+<div class="row" *ngIf="estado=='Listar'">
+
+
   <div class="card">
     <div class="card-header">
       <i class="fa fa-align-justify"></i> Protocolos
@@ -132,8 +127,7 @@ mat-tab {
             <td>{{item.entrega}}</td>
             <td>{{item.responsable}}</td>
             <td><button class="btn btn-secondary btn-sm btn-pill">{{item.estadoStr}}</button></td>
-            <td><button type="button" class="btn btn-brand btn-behance"
-                (click)="estado='actividad';listarActividad(item.idProtocolo)">
+            <td><button type="button" class="btn btn-brand btn-behance" (click)="estado='cotizar';">
                 <i class="fa fa-eye"></i>
               </button></td>
           </tr>
@@ -143,6 +137,74 @@ mat-tab {
     </div>
   </div>
 
+</div>
 
+
+<div class="container" *ngIf="estado=='cotizar'">
+  <button (click)="estado='Listar'" class="btn btn-primary">Volver</button>
+
+  <div class="row">
+    <div class="col-8 card border border-primary">
+
+      <div class="row p-3">
+
+
+        <div class="form-group col-4">
+          <label for="viaticos">Viaticos</label>
+          <input type="text" name="viaticos" id="" class="form-control" placeholder="">
+        </div>
+
+        <div class="form-group col-4">
+          <label for="vigencia">Vigencia</label>
+          <input type="text" name="vigencia" id="" class="form-control" placeholder="">
+        </div>
+
+        <div class="form-group col-4">
+          <label for="metodoPago">Metodo pago</label>
+          <input type="text" name="metodoPago" id="" class="form-control" placeholder="">
+        </div>
+
+        <div class="form-group col-4">
+          <label for="fecha">Fecha</label>
+          <input type="text" name="fecha" id="" class="form-control" placeholder="">
+        </div>
+
+        <div class="form-group col-4">
+          <label for="responsable">Responsable</label>
+          <input type="text" name="responsable" id="" class="form-control" placeholder="">
+        </div>
+
+        <div class="form-group col-4">
+          <label for="estado">Estado</label>
+          <input type="text" name="estado" id="" class="form-control" placeholder="">
+        </div>
+
+          <h5>Buscar clientes</h5>
+   <mat-form-field style="width: 100%">
+     <mat-select placeholder="Clientes" [(ngModel)]="clienteSelected" #departamento  (keyup.enter)="seleccionarDepartamento(departamento.value)" >
+       <mat-option>
+         <ngx-mat-select-search [(ngModel)]="departamentoSearch"
+         [noEntriesFoundLabel]="'No se encontró el departamento'"
+         [placeholderLabel]="'Nombre del departamento'">
+        <div ngxMatSelectSearchClear><div class="ni ni-fat-remove"></div></div>
+       </ngx-mat-select-search>
+       </mat-option>
+       <mat-option *ngFor="let item of clientes | filter : searchText" >
+         {{item.nombre}}
+       </mat-option>
+     </mat-select>
+   </mat-form-field>
+
+
+    </div>
+
+<!--     <div class="col-4 card border border-dark">
+
+    </div> -->
+
+  </div>
 
 </div>
+
+
+
