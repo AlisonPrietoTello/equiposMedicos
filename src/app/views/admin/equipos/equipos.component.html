@@ -64,21 +64,21 @@
         <div class="row">
           <div class="col-sm-6">
               <label for="exampleFormControlSelect1">Protocolo</label>
-              <select class="form-control" id="exampleFormControlSelect1" >
-                  <option  *ngFor="let item of protocolo">{{item.nombre}}</option>
+              <select class="form-control" id="exampleFormControlSelect1" name="fkProtocolo" id="fkProtocolo" [(ngModel)]="fkProtocolo" >
+                  <option  *ngFor="let item of protocolo" [value]="item.idProtocolo">{{item.nombre}}</option>
                 </select>
           </div>
           <div class="col-sm-6">
               <label for="exampleFormControlSelect1">Tipo </label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                  <option  *ngFor="let item of parametro" [value]="parametro">{{item.nombre}}</option>
+              <select class="form-control" id="exampleFormControlSelect1" name="fktipo" id="fktipo" [(ngModel)]="fktipo">
+                  <option  *ngFor="let item of parametro" [value]="item.idParametro">{{item.nombre}}</option>
                 </select>
           </div>
         </div>
         <br>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)=" cerrarModal()">Agregar equipo</button>
+        <button type="button" class="btn btn-primary" (click)=" cerrarModal();  agregarEquipo()">Agregar equipo</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cerrarModal()">Close</button>
       </div>
     </div>
