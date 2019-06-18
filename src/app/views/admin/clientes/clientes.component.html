@@ -1,3 +1,94 @@
-<p>
-  clientes works!
-</p>
+<div class="spinner-border text-primary loading" role="status" *ngIf="loading">
+  <span class="sr-only">Loading...</span>
+</div>
+<div class="row linea">
+    <div class="col-8">
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+          </div>
+          <input type="search" class="form-control" placeholder="Buscar" [(ngModel)]="text">
+        </div>
+    </div>
+     <!--<td>Nuevo cliente</td>--> 
+    <div class="col-4">
+      <button type="button" class="btn btn-brand btn-behance" (click)="abrirModal()" ata-toggle="modal" data-target="#exampleModal">
+        <i class="fa fa-plus"></i><span>Nuevo cliente</span>
+      </button>
+    </div>
+  </div>
+  <div class="card" *ngFor="let item of cliente | filter: {nombre:text,codigo:text,responsable:text,hora:text}">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="item">{{item.idTerceros}}</div>
+          <p class="nombre"><b>{{item.nombre}}</b></p>
+          <p class="codigo">{{item.documento}}</p>
+          <p class="responsable">{{item.ciudad}}</p>
+         <!--<td>{{item.estado}}</td>--> 
+        </div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-pill btn-primary ver"><i class="fa fa-eye"></i></button><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" tabindex="-1" *ngIf="service.modal" role="dialog" style="display: block;">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Nuevo cliente</h5>
+          <button type="button" class="close" (click)="cerrarModal()" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-8">
+              <input class="form-control" type="text" placeholder="Nombre cliente">
+            </div>
+            <div class="col-sm-4">
+              <input class="form-control" type="text" placeholder="Nombre corto">
+            </div>
+          </div>
+          <br>  
+          <div class="row">
+            <div class="col-sm-4">
+              <input class="form-control" type="number" placeholder="Documento">
+            </div>
+            <div class="col-sm-8">
+              <input class="form-control" type="text" placeholder="direccion">
+            </div>
+          </div>
+          <br>  
+          <div class="row">
+            <div class="col-sm-6">
+              <input class="form-control" type="number" placeholder="Telefono fijo">
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" type="number" placeholder="Telefono celular">
+            </div>
+          </div>
+          <br>  
+          <div class="row">
+            <div class="col-sm-12">
+              <input class="form-control" type="email" placeholder="Correo">
+            </div>
+          </div>
+          <br>  
+          <div class="row">
+            <div class="col-sm-6">
+              <input class="form-control" type="text" placeholder="Ciudad">
+            </div>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" placeholder="Atencion">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Agregar Cliente</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cerrarModal()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,3 +1,49 @@
-.card{
-    width: 80%;
+
+.loading{
+    position: relative;
+    left: 500px;
+    top: 200px;
+    width: 80px;
+    height: 80px;
 }
+.nombre{
+    position: relative;
+    left: 60px;
+    bottom: 50px;
+    font-size: 20px;
+}
+.codigo{
+    position: relative;
+    bottom: 70px;
+    left: 60px;
+}
+.item{
+    width: 40px;
+    height: 40px;
+    background: rgb(56, 151, 175);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+.responsable{
+    position: relative;
+    bottom: 85px;
+    left: 60px;
+}
+.card{
+    height: 100px;
+}
+.ver{
+    position: relative;
+    left:200px;
+    
+}
+.editar{
+    position: relative;
+    left:250px;
+    top: -35px;
+}
+.card-body{
+    height: 100px;
+}
+
