@@ -1,6 +1,3 @@
-<!-- Button trigger modal -->
-
-<!-- <span *ngFor="let item of dataClientes">{{item.nombre}}</span> -->
 
 <style>
   mat-tab {
@@ -26,7 +23,7 @@
       <div class="modal-body">
 
 
-<!--
+        <!--
           <div class="row">
 
           <p-dropdown [options]="cars" [(ngModel)]="selectedCar2" filter="true">
@@ -97,8 +94,8 @@
       <i class="fa fa-align-justify"></i> Protocolos
 
       <button type="button" class="btn btn-primary" (click)="estado='cotizar';">
-              +
-            </button>
+        +
+      </button>
 
     </div>
     <div class="card-body">
@@ -146,15 +143,17 @@
 <div class="container" *ngIf="estado=='cotizar'">
   <button (click)="estado='Listar'" class="btn btn-primary">Volver</button>
 
-  <div class="row">
-    <div class="col-8 card border border-primary">
+  <div class="row" *ngFor="let item of cotizaciones">
+    <div class="col-7 card border border-primary">
 
       <div class="row p-3">
 
 
-        <div class="form-group col-4">
-          <label for="viaticos">Viaticos</label>
-          <input type="text" name="viaticos" id="" class="form-control" placeholder="">
+        <div class="form-group col-6">
+          <label for="empresa">Empresa</label>
+          <input type="text" name="empresa" id="empresa" class="form-control"
+           value="{{item.fkEmpresa.nombreEmpresa}}" disabled>
+
         </div>
 
         <div class="form-group col-4">
@@ -182,28 +181,65 @@
           <input type="text" name="estado" id="" class="form-control" placeholder="">
         </div>
 
-<mat-form-field>
-    <mat-select placeholder="Cliente" #singleSelect>
-      <mat-option>
-        <ngx-mat-select-search [placeholderLabel]="'Nombre del cliente'"
-        [(ngModel)]="palabra_busqueda" [noEntriesFoundLabel]="'No se encontró el cliente'"></ngx-mat-select-search>
-      </mat-option>
-      <mat-option *ngFor="let cliente of clientes | filter:palabra_busqueda" [value]="cliente">
-        {{cliente.nombre}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Cliente" #singleSelect>
+            <mat-option>
+              <ngx-mat-select-search [placeholderLabel]="'Nombre del cliente'" [(ngModel)]="palabra_busqueda"
+                [noEntriesFoundLabel]="'No se encontró el cliente'"></ngx-mat-select-search>
+            </mat-option>
+            <mat-option *ngFor="let cliente of clientes | filter:palabra_busqueda" [value]="cliente">
+              {{cliente.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+      </div>
+    </div>
+
+    <div class="col-5 card border border-dark p-0">
+
+        <div class="spinner-border text-primary loading" role="status" *ngIf="loading">
+            <span class="sr-only">Loading...</span>
+        </div>
+        
+      <div fxLayout="column" *ngIf="loading==false">
+        <div class="flex-p">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
+            <ng-container matColumnDef="select">
+              <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null"
+                  [checked]="selection.hasValue() && isAllSelected()"
+                  [indeterminate]="selection.hasValue() && !isAllSelected()">
+                </mat-checkbox>
+              </th>
+              <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                  [checked]="selection.isSelected(row)">
+                </mat-checkbox>
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="codigo">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+            </ng-container>
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef> Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+          </table>
+        </div>
+        <mat-paginator #paginator [length]="dataSource?.data.length" [pageIndex]="0" [pageSize]="5"
+          [pageSizeOptions]="[5, 10, 20]">
+        </mat-paginator>
+      </div>
 
 
     </div>
 
-<!--     <div class="col-4 card border border-dark">
-
-    </div> -->
-
   </div>
 
 </div>
-
-
-

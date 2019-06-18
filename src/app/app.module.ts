@@ -22,8 +22,9 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import {DropdownModule} from 'primeng/dropdown';
-import { MatFormFieldModule, MatSelectModule } from '@angular/material';
+import { MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatPaginatorModule } from '@angular/material';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import {MatTableModule} from '@angular/material/table';
 
 const APP_CONTAINERS = [
   DefaultLayoutComponent
@@ -48,6 +49,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CotizarComponent } from './views/cotizar/cotizar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/search';
+import { CdkTableModule } from '@angular/cdk/table';
 
 
 @NgModule({
@@ -71,7 +73,11 @@ import { FilterPipe } from './pipes/search';
     MatFormFieldModule,
     MatSelectModule,
     NgxMatSelectSearchModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatCheckboxModule,
+    CdkTableModule,
+    MatPaginatorModule
   ],
   declarations: [
     AppComponent,
