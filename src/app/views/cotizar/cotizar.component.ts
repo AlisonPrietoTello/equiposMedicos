@@ -28,7 +28,10 @@ export class CotizarComponent implements OnInit {
     this.estado = 'Listar';
     this.loading = true;
   }
-public getEquipos() {}
+
+
+
+
   ngOnInit(): void {
     this.service.getClientes().subscribe(
       data => {
@@ -53,7 +56,7 @@ public getEquipos() {}
   }
 
   public cotizaciones: any;
-  public palabra_busqueda: String;
+  public palabra_busqueda: String ="";
   public estado: String;
 
 // Modal
