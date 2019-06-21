@@ -11,7 +11,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class OrdentrabajoComponent implements OnInit {
   public loading:boolean;
-  public cotizacion:any;
+  public cotizacion;
+  
   public id_cotizacion:any;
    constructor( public service: AppService, private _route: ActivatedRoute) {
        //Obtener id de curso - para contenidos
@@ -19,6 +20,10 @@ export class OrdentrabajoComponent implements OnInit {
     this.id_cotizacion = this._route.snapshot.paramMap.get('id');
     //loading
     }
+  //Listar orden
+  public mostrarCotizacion(){
+
+  }
 
   
   ngOnInit() {

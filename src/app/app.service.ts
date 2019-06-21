@@ -67,7 +67,7 @@ export class AppService {
   }
   //@Get Listar cotizacion por id 
   public getListarCotizacion(id: string) {
-    return this.http.get(this.url + 'cotizaciones/1', httpOptions);
+    return this.http.get(this.url + 'cotizaciones/'.concat(id), httpOptions);
   }
   //Get listar detalles cotizacion por id
   public getListarCotizaciondetalles(id: string) {
