@@ -1,0 +1,135 @@
+<style>
+  mat-tab {
+    display: block;
+    animation: none;
+    position: relative;
+  }
+</style>
+
+<button type="button" class="btn btn-brand btn-behance mb-2 mr-3"
+ *ngIf="estado=='cotizar'" (click)="estado='Listar';">Atrás</button>
+
+<div class="container-fluid " *ngIf="estado=='Listar'">
+
+  <div class="mat-elevation-z8 w-100 row p-3">
+    <div class="row w-100">
+    <div class="col-3">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" [(ngModel)]="palabra_busqueda">
+      </mat-form-field>
+
+    </div>
+    <div class="col-9">
+    <!--   ----- ACCIONES AGREGAR EDITAR IMPRIMIR ----- -->
+        <a (click)="estado='cotizar';" mat-mini-fab class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+
+        <a mat-mini-fab color="primary" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">edit</i></a>
+
+        <a mat-mini-fab color="disabled" class="btn-floating border border-dark btn-large waves-effect waves-light red"><i class="material-icons">print</i></a>
+    </div>
+      
+
+    </div>
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </td>
+
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="Empresa">
+        <th mat-header-cell *matHeaderCellDef> Empresa </th>
+        <td mat-cell *matCellDef="let element"> {{element.fkEmpresa.nombreEmpresa}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Cliente">
+        <th mat-header-cell *matHeaderCellDef> Cliente </th>
+        <td mat-cell *matCellDef="let element"> {{element.fkCotizEncab.fkCliente.nombre}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="CodigoCotizacion">
+        <th mat-header-cell *matHeaderCellDef> CodigoCotizacion </th>
+        <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="Vigencia">
+        <th mat-header-cell *matHeaderCellDef> Vigencia </th>
+        <td mat-cell *matCellDef="let element"> {{element.vigencia}} </td>
+      </ng-container>
+
+<div class="row">
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="MetodoPago" class="col-3">
+          <th mat-header-cell *matHeaderCellDef> MetodoPago </th>
+          <td mat-cell *matCellDef="let element"> {{element.condicionPago}} </td>
+        </ng-container>
+   
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="fechaEntrega" class="col-3">
+          <th mat-header-cell *matHeaderCellDef> fechEntrega </th>
+          <td mat-cell *matCellDef="let element"> {{element.entrega}} </td>
+        </ng-container>
+  
+</div>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="TipoServicio">
+          <th mat-header-cell *matHeaderCellDef> TipoServicio </th>
+          <td mat-cell *matCellDef="let element"> {{element.tipoServicio}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+      <ng-container matColumnDef="Calibracion">
+          <th mat-header-cell *matHeaderCellDef> Calibracion </th>
+          <td mat-cell *matCellDef="let element"> {{element.calibracion}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+      <ng-container matColumnDef="Cantidad">
+          <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+          <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+      <ng-container matColumnDef="Valor">
+          <th mat-header-cell *matHeaderCellDef> Valor </th>
+          <td mat-cell *matCellDef="let element"> $ {{element.valorUnitario}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+      <ng-container matColumnDef="Responsable">
+          <th mat-header-cell *matHeaderCellDef> Responsable </th>
+          <td mat-cell *matCellDef="let element"> {{element.responsable}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+      <ng-container matColumnDef="Estado">
+          <th mat-header-cell *matHeaderCellDef> Estado </th>
+          <td mat-cell *matCellDef="let element"> {{element.estado}} </td>
+        </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+
+
+</div>
+
+<div class="container-fluid" *ngIf="estado=='cotizar'">
+  <app-cotizar></app-cotizar>
+</div>

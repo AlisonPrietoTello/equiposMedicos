@@ -58,6 +58,11 @@ export class AppService {
     return this.http.get(this.url + 'cotizaciones/list', httpOptions);
   }
 
+    // @Get Cotizacion Detalle
+    public getCotizacionDetalle() {
+      return this.http.get(this.url + 'cotizacionesDetalle/list', httpOptions);
+    }
+
   // @Get Clientes
   public getClientes() {
     return this.http.get(this.url + 'clientes/list')

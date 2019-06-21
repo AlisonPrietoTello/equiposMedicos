@@ -77,7 +77,7 @@ export const navItems: NavData[] = [
   },
   {
     name: 'Cotizar',
-    url: '/cotizar',
+    url: '/cotizaciones',
     icon: 'cui-dollar'
   },
   {

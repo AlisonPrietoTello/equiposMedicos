@@ -22,7 +22,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import {DropdownModule} from 'primeng/dropdown';
-import { MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatPaginatorModule } from '@angular/material';
+import { MatFormFieldModule, MatSelectModule, MatCheckboxModule, MatPaginatorModule, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatSlideToggleModule } from '@angular/material';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import {MatTableModule} from '@angular/material/table';
 
@@ -46,10 +46,12 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
-import { CotizarComponent } from './views/cotizar/cotizar.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/search';
 import { CdkTableModule } from '@angular/cdk/table';
+import { CotizacionesComponent } from './views/cotizaciones/cotizaciones.component';
+import { CotizarComponent } from './views/cotizaciones/cotizar/cotizar.component';
 
 
 @NgModule({
@@ -77,7 +79,11 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatTableModule,
     MatCheckboxModule,
     CdkTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatButtonModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatSlideToggleModule
   ],
   declarations: [
     AppComponent,
@@ -85,8 +91,9 @@ import { CdkTableModule } from '@angular/cdk/table';
     P404Component,
     P500Component,
     LoginComponent,
-    CotizarComponent,
-    FilterPipe
+    FilterPipe,
+    CotizacionesComponent,
+    CotizarComponent
   ],
   providers: [AppService, {
     provide: LocationStrategy,
