@@ -84,7 +84,6 @@
             <th>Cliente</th>
             <th>Viaticos</th>
             <th>Vigencia</th>
-            <!--             <th>Valor</th> -->
             <th>Metodo Pago</th>
             <th>Fecha Entrega</th>
             <th>Responsable</th>
@@ -99,15 +98,14 @@
             <td>{{item.fkCliente.nombre}}</td>
             <td>{{item.viaticoValor}}</td>
             <td>{{item.vigencia}} Dia/s</td>
-            <!--             <th>{{item.}}</th> -->
             <td>{{item.condicionPago}}</td>
             <td>{{item.entrega}}</td>
             <td>{{item.responsable}}</td>
             <td>{{item.estadoStr}}</td>
-            <td><button type="button" class="btn btn-brand btn-behance"
-                (click)="estado='actividad';listarActividad(item.idProtocolo)">
+            <td><a type="button" class="btn btn-brand btn-behance"
+              [routerLink]="['/orden', ordenes.idOrdenes]">
                 <i class="fa fa-eye"></i>
-              </button></td>
+            </a></td>
           </tr>
         </tbody>
       </table>

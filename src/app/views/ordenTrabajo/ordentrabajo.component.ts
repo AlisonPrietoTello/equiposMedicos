@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { AppService } from '../../app.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -11,19 +12,16 @@ import { AppService } from '../../app.service';
 export class OrdentrabajoComponent implements OnInit {
   public loading:boolean;
   public cotizacion:any;
-   constructor( public service: AppService) {
+  public id_cotizacion:any;
+   constructor( public service: AppService, private _route: ActivatedRoute) {
+       //Obtener id de curso - para contenidos
+    console.log(this._route.snapshot.paramMap.get('id'));
+    this.id_cotizacion = this._route.snapshot.paramMap.get('id');
+    //loading
     this.loading=true;
     }
-  public listarCotizacion(id){
-    this.service.getListarCotizacion(id).subscribe( 
-      result=>{console.log(result),this.cotizacion=result;
-      }
-    );
-  }
-    
-
+  
   ngOnInit() {
-    this.listarCotizacion(1);
   }
     
 }

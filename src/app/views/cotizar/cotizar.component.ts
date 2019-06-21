@@ -10,6 +10,7 @@ import { Subject } from 'rxjs';
 export class CotizarComponent implements OnInit {
 
   dtTrigger: Subject<any> = new Subject();
+  public cotizacion:any;
   public cotizaciones:any;
 
   constructor(private service: AppService) { }
@@ -27,18 +28,11 @@ export class CotizarComponent implements OnInit {
     this.service.cerrarModal();
   }
 
-  // Tabla
-  getCotizaciones() {
-
-  }
-  
-  
-
   //listar Cotizaciones 
   public listarCotizaciones() {
   this.service.getCotizaciones().subscribe(
     result => {
-      console.log(result), this.cotizaciones = result,
+      console.log(result), this.cotizaciones= result,
       this.dtTrigger.next();
     });
 

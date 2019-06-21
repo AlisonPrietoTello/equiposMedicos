@@ -69,7 +69,10 @@ export class AppService {
   public getListarCotizacion(id: string) {
     return this.http.get(this.url + 'cotizaciones/1', httpOptions);
   }
-
+  //Get listar detalles cotizacion por id
+  public getListarCotizaciondetalles(id: string) {
+    return this.http.get(this.url + 'cotizaciones/1', httpOptions);
+  }
   //@Post clientes
   post(ruta: string, body: any){let repos = this.http.post<any>(this.url.concat(ruta), body, httpOptions); 
   return repos;
