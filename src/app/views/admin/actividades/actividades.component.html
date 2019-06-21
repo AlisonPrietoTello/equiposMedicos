@@ -16,22 +16,25 @@
     </button>
   </div>
 </div>
-<div class="card" *ngFor="let item of protocolo | filter: {nombre:text,codigo:text,responsable:text,hora:text}">
-  <div class="card-body">
-    <div class="row">
-      <div class="col-sm-8">
-          <div class="item">{{item.idProtocolo}}</div>
-        <p class="nombre"><b>{{item.nombre}}</b></p>
-        <p class="codigo">{{item.codigo}}</p>
-        <p class="responsable">{{item.responsable}}</p>
-       <!--<td>{{item.estado}}</td>--> 
-      </div>
-      <div class="col-sm-4">
-        <button type="button" class="btn btn-pill btn-primary ver"><i class="fa fa-eye"></i></button><br>
+<div class="" *ngIf="estado=='proto'">
+  <div class="card listar4" *ngFor="let item of protocolo | filter: {nombre:text,codigo:text,responsable:text,hora:text}" >
+    <div class="card-body listar5">
+      <div class="row">
+        <div class="col-sm-8">
+            <div class="item">{{item.idProtocolo}}</div>
+          <p class="nombre"><b>{{item.nombre}}</b></p>
+          <p class="codigo">{{item.codigo}}</p>
+          <p class="responsable">{{item.responsable}}</p>
+         <!--<td>{{item.estado}}</td>--> 
+        </div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-pill btn-primary ver" (click)="estado='actividad'; listarActividad(item.idProtocolo)"><i class="fa fa-eye"></i></button><br>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
   <!--Card Actividad-->
 <div class="row"*ngIf="estado=='actividad'"> 
   <div class="card" style="width: 100%; ">
@@ -39,7 +42,7 @@
       <i class="fa fa-align-justify"></i> Actividades 
     </div>
     <div class="card-body">
-      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+      <table  class="row-border hover">
         <thead>
           <tr>
             <th>Items</th>

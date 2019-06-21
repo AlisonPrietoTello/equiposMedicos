@@ -1,0 +1,115 @@
+<div class="row">
+  <div class="col-6">
+    <label for=""><b>N Cotizacion: </b>{{cotizacion.viaticoValor}}</label>
+  </div>
+  <div class="col-6">
+    <label for=""><b>fecha: </b>{{cotizacion.fecha}}</label>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <label for=""><b>Cliente: </b>{{cotizacion.fkEmpresa.nombreEmpresa}}</label>
+  </div>
+  <div class="col-6">
+    <label for=""><b>NIT/C.C: </b>{{cotizacion.fkEmpresa.nitEmpresa}}</label>
+  </div>
+</div>
+<div class="row">
+  <div class="col-6">
+    <label for=""><b>Contacto: </b>{{cotizacion.fkCliente.nombre}}</label>
+  </div>
+  <div class="col-6">
+    <label for=""><b>Cargo del contac:</b></label>
+  </div>  
+</div>
+<div class="row">
+  <div class="col-6"><label for=""><b>Direccion: </b>{{cotizacion.fkCliente.direccion}}</label></div>
+  <div class="col-6"><label for=""><b>Telefono: </b>{{cotizacion.fkCliente.telefonoFijo}}</label></div>
+</div>
+<div class="row">
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Protocolos
+      </div>
+      <div class="card-body">
+        <table datatable class="row-border hover text-center">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Equipo</th>
+              <th>Sercio</th>  
+              <th>Cantidad</th>
+              <th>Reportes</th>
+              <th>Responsable</th>
+              <th>Fecha cotizacion</th>
+              <th>Detalles</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{cotizacion.idCotizEncab}}</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card detalles">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Herramienta:</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Gafas de seguridad
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Gorro
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Guantes desechables
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Tapabocas
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Bata
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Riesgos:</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Comentario:</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

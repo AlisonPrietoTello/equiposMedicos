@@ -1,3 +1,4 @@
+import { OrdentrabajoComponent } from './views/ordenTrabajo/ordentrabajo.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -93,7 +94,8 @@ import { CotizarComponent } from './views/cotizaciones/cotizar/cotizar.component
     LoginComponent,
     FilterPipe,
     CotizacionesComponent,
-    CotizarComponent
+    CotizarComponent,
+    OrdentrabajoComponent
   ],
   providers: [AppService, {
     provide: LocationStrategy,

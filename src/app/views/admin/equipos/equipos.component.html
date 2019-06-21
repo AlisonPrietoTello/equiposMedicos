@@ -2,36 +2,85 @@
   <span class="sr-only">Loading...</span>
 </div>
 <div class="row linea">
-    <div class="col-8">
-      <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
-          </div>
-          <input type="search" class="form-control" placeholder="Buscar" [(ngModel)]="text">
-        </div>
-    </div>
-    <div class="col-4">
-      <button type="button" class="btn btn-brand btn-behance">
-        <i class="fa fa-plus"></i><span>Nuevo Protocolo</span>
-      </button>
+  <div class="col-8">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+      </div>
+      <input type="search" class="form-control" placeholder="Buscar" [(ngModel)]="text">
     </div>
   </div>
-  <div class="card" *ngFor="let item of equipo | filter: {nombre:text,codigo:text,responsable:text,hora:text}">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="item">{{item.idEquipos}}</div>
-          <p class="nombre"><b>{{item.nombre}}</b></p>
-          <p class="codigo">{{item.codigo}}</p>
-          <p class="responsable">{{item.referencia}}</p>
-         <!--<td>{{item.estado}}</td>--> 
-        </div>
-        <div class="col-sm-4">
-          <button type="button" class="btn btn-pill btn-primary ver"><i class="fa fa-eye"></i></button><br>
-        </div>
+  <div class="col-4">
+    <button type="button" class="btn btn-brand btn-behance" (click)="abrirModal()" ata-toggle="modal"
+      data-target="#exampleModal">
+      <i class="fa fa-plus"></i><span>Nuevo Equipo</span>
+    </button>
+  </div>
+</div>
+<div class="card" *ngFor="let item of equipo | filter: {nombre:text,codigo:text,responsable:text,hora:text}">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="item">{{item.idEquipos}}</div>
+        <p class="nombre"><b>{{item.nombre}}</b></p>
+        <p class="codigo">{{item.codigo}}</p>
+        <p class="responsable">{{item.referencia}}</p>
+        <!--<td>{{item.estado}}</td>-->
+      </div>
+      <div class="col-sm-4">
+        <button type="button" class="btn btn-pill btn-primary ver"><i class="fa fa-eye"></i></button><br>
       </div>
     </div>
   </div>
-  
-
-
+</div>
+<div class="modal" tabindex="-1" *ngIf="service.modal" role="dialog" style="display: block;">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Nuevo Equipo</h5>
+        <button type="button" class="close" (click)="cerrarModal()" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <input class="form-control" type="text" name="codigo" id="codigo" [(ngModel)]="codigo"
+                placeholder="Codigo">
+            </div>
+            <div class="col-sm-4">
+              <input class="form-control" type="text" name="referecia" id="referencia" [(ngModel)]="referencia"
+                placeholder="Refencia">
+            </div>
+          </div>
+          <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <input class="form-control" type="text" name="nombre" id="nombre" [(ngModel)]="nombre"
+              placeholder="Nombre equipo">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm-6">
+              <label for="exampleFormControlSelect1">Protocolo</label>
+              <select class="form-control" id="exampleFormControlSelect1" name="fkProtocolo" id="fkProtocolo" [(ngModel)]="fkProtocolo" >
+                  <option  *ngFor="let item of protocolo" [value]="item.idProtocolo">{{item.nombre}}</option>
+                </select>
+          </div>
+          <div class="col-sm-6">
+              <label for="exampleFormControlSelect1">Tipo </label>
+              <select class="form-control" id="exampleFormControlSelect1" name="fktipo" id="fktipo" [(ngModel)]="fktipo">
+                  <option  *ngFor="let item of parametro" [value]="item.idParametro">{{item.nombre}}</option>
+                </select>
+          </div>
+        </div>
+        <br>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)=" cerrarModal();  agregarEquipo()">Agregar equipo</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cerrarModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

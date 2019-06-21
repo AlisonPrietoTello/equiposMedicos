@@ -1,3 +1,4 @@
+import { CotizacionesComponent } from './views/cotizaciones/cotizaciones.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -7,7 +8,8 @@ import { DefaultLayoutComponent } from './containers';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
-import { CotizacionesComponent } from './views/cotizaciones/cotizaciones.component';
+import { CotizarComponent } from './views/cotizar/cotizar.component';
+import { OrdentrabajoComponent } from './views/ordenTrabajo/ordentrabajo.component';
 
 
 export const routes: Routes = [
@@ -60,7 +62,10 @@ export const routes: Routes = [
         path: 'widgets',
         loadChildren: './views/widgets/widgets.module#WidgetsModule'
       },
-      { path: 'cotizaciones', component: CotizacionesComponent}
+      { path: 'cotizar', component: CotizarComponent},
+      { path: 'orden', component: OrdentrabajoComponent},
+      { path: 'cotizaciones', component: CotizacionesComponent},
+
     ]
   },
   { path: '**', component: P404Component }

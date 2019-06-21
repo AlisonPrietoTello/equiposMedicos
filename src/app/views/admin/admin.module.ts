@@ -12,13 +12,16 @@ import { DataTablesModule } from 'angular-datatables';
 import { FilterPipe } from './search.pipe';
 import { FormsModule } from '@angular/forms';
 
+
 export const routes = [
   { path: '', component: ActividadesComponent, pathMatch: 'full' },
   { path: 'actividades', component: ActividadesComponent, data: { breadcrumb: 'Actividades' }},
   { path: 'protocolos', component: ProtocolosComponent, data: { breadcrumb: 'Protocolos' }},
   { path: 'instrumentos', component: InstrumentoComponent, data: { breadcrumb: 'Instrumentos' }},
   { path: 'equipos', component: EquiposComponent, data: { breadcrumb: 'Equipos' }},
-  { path: 'clientes', component: ClientesComponent, data: { breadcrumb: 'Clientes' }}
+  { path: 'clientes', component: ClientesComponent, data: { breadcrumb: 'Clientes' }},
+
+
 ];
 
 @NgModule({
