@@ -18,10 +18,11 @@ export class OrdentrabajoComponent implements OnInit {
     console.log(this._route.snapshot.paramMap.get('id'));
     this.id_cotizacion = this._route.snapshot.paramMap.get('id');
     //loading
-    this.loading=true;
     }
+
   
   ngOnInit() {
+  
   }
     
 }
