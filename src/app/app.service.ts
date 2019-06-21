@@ -60,7 +60,7 @@ export class AppService {
 
     // @Get Cotizacion Detalle
     public getCotizacionDetalle() {
-      return this.http.get(this.url + 'cotizacionesDetalle/list', httpOptions);
+      return this.http.get(this.url + 'cotizacionesSDetalle/list', httpOptions);
     }
 
   // @Get Clientes
