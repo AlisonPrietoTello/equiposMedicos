@@ -56,7 +56,7 @@ export class ClientesComponent implements OnInit, OnDestroy {
   }
   //listar clientes
   public listarClientes() {
-    this.service.getCliente().subscribe(
+    this.service.getClientes().subscribe(
       result => {
         console.log(result), this.cliente = result, this.dtTrigger.next();
         if (!this.service) {

@@ -58,7 +58,7 @@ export class AppService {
     return this.http.get(this.url + 'cotizaciones/list', httpOptions);
   }
   //@Get clientes
-  public getCliente(){
+  public getClientes(){
     return this.http.get(this.url + 'clientes/list',httpOptions);
   }
   //@Get parametro por grupo

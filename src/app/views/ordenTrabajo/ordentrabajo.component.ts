@@ -3,7 +3,6 @@ import { Subject } from 'rxjs';
 import { AppService } from '../../app.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-ordentrabajo',
   templateUrl: './ordentrabajo.component.html',
