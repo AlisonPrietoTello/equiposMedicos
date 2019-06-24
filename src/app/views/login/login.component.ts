@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   title = 'Iniciar Sesión';
 
   usuario: Usuario;
-
+  
   constructor(private auth: AuthService, private router: Router) {
     this.usuario = new Usuario();
   }
@@ -38,4 +38,7 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  
+
 }

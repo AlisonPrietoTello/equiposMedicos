@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { APP } from './constants';
-const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+
+const token = sessionStorage.getItem("token");
+const httpOptions = { headers: new HttpHeaders({
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer ' + this.token
+  }) 
+};
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class AppService {
+
   public url: String = APP.ApiEndpoint;
   constructor(private http: HttpClient) { }
   // @Get actividades 
@@ -70,19 +79,18 @@ export class AppService {
     return this.http.get(this.url + 'cotizaciones/'.concat(id), httpOptions);
   }
   //Get listar detalles cotizacion por id
-  public getListarCotizaciondetalles(id: string) {
+/*   public getListarCotizaciondetalles(id: string) {
     return this.http.get(this.url + 'cotizaciones/1', httpOptions);
-  }
+  } */
+
   //@Post clientes
   post(ruta: string, body: any){let repos = this.http.post<any>(this.url.concat(ruta), body, httpOptions); 
   return repos;
  }
 
-
-
     // @Get Cotizacion Detalle
     public getCotizacionDetalle() {
-      return this.http.get(this.url + 'cotizacionesSDetalle/list', httpOptions);
+      return this.http.get(this.url + 'cotizacionesDetalle/list', httpOptions);
     }
 
 
