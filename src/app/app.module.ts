@@ -53,6 +53,9 @@ import { FilterPipe } from './pipes/search';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CotizacionesComponent } from './views/cotizaciones/cotizaciones.component';
 import { CotizarComponent } from './views/cotizaciones/cotizar/cotizar.component';
+import {PickListModule} from 'primeng/picklist';
+import {InputTextModule} from 'primeng/inputtext';
+
 
 
 @NgModule({
@@ -84,7 +87,9 @@ import { CotizarComponent } from './views/cotizaciones/cotizar/cotizar.component
     MatButtonModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    PickListModule,
+    InputTextModule,
   ],
   declarations: [
     AppComponent,

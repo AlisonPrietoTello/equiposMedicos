@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { APP } from './constants';
-const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+
+const token = sessionStorage.getItem("token");
+const httpOptions = { headers: new HttpHeaders({
+  'Content-Type': 'application/json',
+  'Authorization': 'Bearer ' + token
+  }) 
+};
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class AppService {
+
   public url: String = APP.ApiEndpoint;
   constructor(private http: HttpClient) { }
   // @Get actividades 
@@ -52,38 +61,31 @@ export class AppService {
   public getTerceros() {
     return this.http.get(this.url + 'terceros/list', httpOptions);
   }
-
-  // @Get Cotizaciones
-  public getCotizaciones() {
-    return this.http.get(this.url + 'cotizaciones/list', httpOptions);
-  }
   //@Get clientes
   public getClientes(){
     return this.http.get(this.url + 'clientes/list',httpOptions);
+  }
+  // @Get Cotizaciones
+  public getCotizaciones() {
+    return this.http.get(this.url + 'cotizaciones/list', httpOptions);
   }
   //@Get parametro por grupo
   public getParametroGrupo(){
     return this.http.get(this.url + 'parametro/filtro_empresa_grupo/1/2', httpOptions)
   }
   //@Get Listar cotizacion por id 
-  public getListarCotizacion(id: any) {
+  public getListarCotizacion(id: any){
     return this.http.get(this.url + 'cotizaciones/'.concat(id), httpOptions);
   }
-  //Get listar detalles cotizacion por id
-  public getListarCotizaciondetalles(id: string) {
-    return this.http.get(this.url + 'cotizaciones/1', httpOptions);
-  }
   //@Post clientes
-  post(ruta: string, body: any){let repos = this.http.post<any>(this.url.concat(ruta), body, httpOptions); 
+  post(ruta: string, body: any){
+    let repos = this.http.post<any>(this.url.concat(ruta), body, httpOptions); 
   return repos;
- }
-    // @Get Cotizacion Detalle
-    public getCotizacionDetalle() {
-      return this.http.get(this.url + 'cotizacionesSDetalle/list', httpOptions);
-    }
-
-
-
+  }
+  // @Get Cotizacion Detalle
+  public getCotizacionDetalle(){
+    return this.http.get(this.url + 'cotizacionesDetalle/list', httpOptions);
+  }
   // Modal
   modal: boolean = false;
   abrirModal() {
@@ -92,8 +94,6 @@ export class AppService {
   cerrarModal() {
     this.modal = false;
   }
-
-
 
 }
 
