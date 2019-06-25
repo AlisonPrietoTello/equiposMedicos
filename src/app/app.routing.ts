@@ -14,7 +14,7 @@ import { OrdentrabajoComponent } from './views/ordenTrabajo/ordentrabajo.compone
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {

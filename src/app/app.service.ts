@@ -94,6 +94,10 @@ export class AppService {
       return this.http.get(this.url + 'cotizacionesDetalle/list', httpOptions);
     }
 
+    // @Get Metodos de Pago
+    public getMetodosDePago() {
+      return this.http.get(this.url + 'cotizaciones/medioDePago/list', httpOptions)
+    }
 
 
   // Modal

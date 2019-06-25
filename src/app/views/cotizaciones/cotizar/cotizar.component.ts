@@ -42,25 +42,21 @@ export class CotizarComponent implements OnInit {
   ngOnInit(): void {
     this.getClientes();
     this.getEquipos();
-    this.getCotizaciones();
+    this.getMetodosDePago();
   }
 
   public palabra_busqueda: String = "";
   public estado: String;
-  public pago_seleccionado: String = "";
 
-  public Cotizacion: any;
+
+
   public metodosDePago: any;
+  public pago_seleccionado: String = "";
   // Get Coitzaciones w/ metodoDePago
-  public getCotizaciones() {
-    this.service.getCotizaciones().subscribe(
+  public getMetodosDePago() {
+    this.service.getMetodosDePago().subscribe(
       data => { /* console.log(data); */
-        this.Cotizacion = data;
-        this.Cotizacion.forEach(element => {
-          this.metodosDePago = element.condicionPago;
-          console.log(this.metodosDePago);
-        });
-        
+        this.metodosDePago = data;
         if (!this.service) {
           alert('Error en el servidor');
         } else {

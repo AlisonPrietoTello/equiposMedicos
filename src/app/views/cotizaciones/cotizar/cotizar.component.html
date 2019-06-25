@@ -102,7 +102,7 @@
           
             <h3 class="first">Single</h3>
             <p-dropdown [options]="metodosDePago" [(ngModel)]="pago_seleccionado" placeholder="Selecionar forma de pago" optionLabel="name" [showClear]="true">
-                <p>Selected City: {{metodosDePago ? metodosDePago.name : 'none'}}</p>
+                <p>Selected City: {{metodosDePago.nombre}}</p>
               </p-dropdown>
             <p></p>
             
