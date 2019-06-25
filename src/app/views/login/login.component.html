@@ -1,39 +1,45 @@
-<div class="container">
-  <div class="row logo my-5">
-    <img src="/assets/img/logo_tributo_white.png" alt="logo" class="logo1">
-  </div>
-  <div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto my-5">
-      <form class="form my-5" method="post">
-        <div class="card card-login">
-          <div class="card-header card-header-rose text-center">
-            <h4 class="card-title">{{title}}</h4>
-          </div>
-          <div class="card-body my-2 ">
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">
-                  <i class="material-icons">face</i>
-                </span>
-              </div>
-              <input class="form-control" [(ngModel)]="usuario.username" id="username" name="username" placeholder="#nit / Usuario" type="text" autofocus required>
-            </div>
-            <span class="bmd-form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">lock_outline</i>
-                  </span>
-                </div>
-                <input class="form-control" [(ngModel)]="usuario.password" name="password" id="password" placeholder="Contraseña" type="password" autocomplete="false" required>
-              </div>
-            </span>
-          </div>
-          <div class="card-footer justify-content-center">
-            <input (click)="login()" type="submit" class="btn btn-round btn-rose btn-block " value="Iniciar">
-          </div>
+<div class="container m-o p-o">
+    <div class="row logo">
+        <div class="row mx-auto my-md-4">
+          <img src="/assets/img/logo-icon.png" alt="logo" class="logo1">
         </div>
-      </form>
-    </div>
-  </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 w-75">
+          <form class="form" method="post">
+            <div class="card card-login my-0">
+              <div class="card-header card-header-rose">
+                <h3 class="card-title text-center m-0 font-weight-bold">{{title}}</h3>
+              </div>
+              <div class="card-body py-1">
+               
+                  <form class="row text-center">
+                    <div class="col-12 my-2 mb-md-2 my-lg-3">
+                      <mat-form-field>
+                          <span matPrefix><i class="material-icons mr-2">person</i> &nbsp;</span>
+                        <input matInput placeholder="USERNAME" type="text" [(ngModel)]="usuario.username" id="username" name="username" autofocus required>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-12 my-2 mb-md-2 mb-lg-3">
+                        <mat-form-field>
+                          <span matPrefix><i class="material-icons mr-2">lock</i> &nbsp;</span>
+                          <input matInput placeholder="PASSWORD" type="password" [(ngModel)]="usuario.password" name="password" id="password" placeholder="Contraseña" autocomplete="false" required>
+                        </mat-form-field>
+                      </div>
+                      
+                  </form>
+               
+              </div>
+              <button mat-raised-button color="primary" type="submit" (click)="login()" class="card-footer justify-content-center">
+                  <h4 class="p-2 font-weight-bold">
+                    Iniciar Session</h4>
+              </button>
+            </div>
+            <div class="row my-3">
+                <p class="col-12 text-center mb-0 mt-2">No tiens cuenta? click <a href="#">aquí</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    
 </div>

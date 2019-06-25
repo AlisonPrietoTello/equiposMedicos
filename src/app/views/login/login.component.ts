@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
 
 export class LoginComponent implements OnInit {
 
-  title = 'Iniciar Sesión';
+  title = 'Equipos Medicos';
 
   usuario: Usuario;
   
