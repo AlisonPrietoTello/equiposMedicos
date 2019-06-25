@@ -66,7 +66,7 @@ export class AppService {
     return this.http.get(this.url + 'parametro/filtro_empresa_grupo/1/2', httpOptions)
   }
   //@Get Listar cotizacion por id 
-  public getListarCotizacion(id: string) {
+  public getListarCotizacion(id: any) {
     return this.http.get(this.url + 'cotizaciones/'.concat(id), httpOptions);
   }
   //Get listar detalles cotizacion por id
@@ -77,9 +77,6 @@ export class AppService {
   post(ruta: string, body: any){let repos = this.http.post<any>(this.url.concat(ruta), body, httpOptions); 
   return repos;
  }
-
-
-
     // @Get Cotizacion Detalle
     public getCotizacionDetalle() {
       return this.http.get(this.url + 'cotizacionesSDetalle/list', httpOptions);

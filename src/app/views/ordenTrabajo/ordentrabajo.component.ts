@@ -19,14 +19,25 @@ export class OrdentrabajoComponent implements OnInit {
     this.id_cotizacion = this._route.snapshot.paramMap.get('id');
     //loading
     }
-  //Listar orden
+  // orden
   public mostrarCotizacion(){
-
+    this.service.getListarCotizacion('id').subscribe(
+      result=>{console.log(result),this.cotizacion=result;
+        if(!this.service){
+          alert('Error en el servidor');
+        }else{  
+          this.loading=false;
+        }
+      })
   }
 
   
-  ngOnInit() {
+   
   
+
+  
+  ngOnInit() {
+  this.mostrarCotizacion();
   }
     
 }
