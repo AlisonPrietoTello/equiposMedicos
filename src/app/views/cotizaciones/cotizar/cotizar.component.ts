@@ -32,38 +32,62 @@ export class CotizarComponent implements OnInit {
   selection = new SelectionModel<any>(true, []);
 
 
-
-
   constructor(private service: AppService) {
     this.loading = true;
   }
 
+  equipoSource: any = [];
+  equipoTarget: any = [];
+
   ngOnInit(): void {
     this.getClientes();
     this.getEquipos();
+    this.getCotizaciones();
   }
 
   public palabra_busqueda: String = "";
   public estado: String;
+  public pago_seleccionado: String = "";
 
-  
-  
+  public Cotizacion: any;
+  public metodosDePago: any;
+  // Get Coitzaciones w/ metodoDePago
+  public getCotizaciones() {
+    this.service.getCotizaciones().subscribe(
+      data => { /* console.log(data); */
+        this.Cotizacion = data;
+        this.Cotizacion.forEach(element => {
+          this.metodosDePago = element.condicionPago;
+          console.log(this.metodosDePago);
+        });
+        
+        if (!this.service) {
+          alert('Error en el servidor');
+        } else {
+          this.loading = false;
+          console.log(data);
+        }
+      },
+      error => { console.log(error) }
+    );
+    this.equipoTarget = [];
+  }
 
   // Get Equipos
   public getEquipos() {
     this.service.getEquipos().subscribe(
       data => { /* console.log(data); */
-        this.list = data;
-        this.dataSource = new MatTableDataSource<any>(this.list);
-        this.dataSource.paginator = this.paginator;
+        this.equipoSource = data;
         if (!this.service) {
           alert('Error en el servidor');
         } else {
           this.loading = false;
+          console.log(data);
         }
       },
       error => { console.log(error) }
     );
+    this.equipoTarget = [];
   }
 
   // Get Clientes
@@ -100,3 +124,4 @@ export class CotizarComponent implements OnInit {
   }
 
 }
+

@@ -1,130 +1,19 @@
-
-  <div class="row" >
-    <div class="col-7 card border border-primary">
-
-      <div class="row p-4 text-center">
+<div class="row card border-0 text-center">
 
 
-        <div class="form-group col-4">
-          <label for="empresa">Empresa</label>
-          <input type="text" name="empresa" id="empresa" class="form-control"
-           value="Hospital Médico" disabled>
 
-        </div>
-
-        <div class="form-group col-4">
-          <label for="vigencia">Vigencia</label>
-          <input type="text" name="vigencia" id="" class="form-control" placeholder="30 días">
-        </div>
-
-        <div class="form-group col-4">
-            <label for="vigencia">Codigo Cotizacion</label>
-            <input type="text" name="codCotizacion" value="G2019-047" class="form-control" placeholder="">
-          </div>
-
-       
-    <div class="form-group col-4 text-center mt-2"> 
-<mat-form-field >
-  <mat-label>Metodo de pago</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let item of data" [value]="food.value">
-      {{item.fkCotizEncab.condicionPago}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-</div>     
-
-        <div class="form-group col-4 text-center">
-          <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="Fecha de entrega">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-            
-        </div>
-
-        <div class="form-group col-3 offset-1 m-auto">
-          <mat-form-field>
-              <mat-select placeholder="Responsable" #singleSelect>
-                <mat-option>
-                  <ngx-mat-select-search [placeholderLabel]="'Nombre del cliente'" [(ngModel)]="palabra_busqueda"
-                    [noEntriesFoundLabel]="'No se encontró el cliente'"></ngx-mat-select-search>
-                </mat-option>
-                <mat-option *ngFor="let cliente of clientes | filter:palabra_busqueda" [value]="cliente">
-                  {{cliente.nombre}}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-        </div>
-
-<div class="row mx-auto my-2">
-    <div class="col-3">
-
-        <mat-form-field>
-          <mat-select placeholder="Tipo Servicio" #singleSelect>
-            <mat-option>
-              <ngx-mat-select-search [placeholderLabel]="'Nombre del cliente'" [(ngModel)]="palabra_busqueda"
-                [noEntriesFoundLabel]="'No se encontró el cliente'"></ngx-mat-select-search>
-            </mat-option>
-            <mat-option *ngFor="let cliente of clientes | filter:palabra_busqueda" [value]="cliente">
-              {{cliente.nombre}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-</div>
-
-
-  <div class="col-2 ml-5">
-    <label for="">Calibracion?</label>
-    <br> <mat-slide-toggle></mat-slide-toggle>
-  </div>
-
-  <div class="col-2">
-      <label for="">valor</label>
-      <br> <strong>$</strong> <input type="text" class="form-group-sm w-75">
-    </div>
-
- 
+    <div class="col-auto p-2">
   
-
-    <div class="offset-1 col-3">
-
-        <mat-form-field>
-          <mat-select placeholder="Estado" #singleSelect>
-            <mat-option>
-              <ngx-mat-select-search [placeholderLabel]="'Resposable'" [(ngModel)]="palabra_busqueda"
-                [noEntriesFoundLabel]="'No se encontró el cliente'"></ngx-mat-select-search>
-            </mat-option>
-            <mat-option *ngFor="let cliente of clientes | filter:palabra_busqueda" [value]="cliente">
-              {{cliente.nombre}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-</div>
-</div>
-
-
-<div class="col-12 justify-content-center text-center mt-5">
-    <button mat-raised-button color="primary">Terminar Cotización</button>
-  </div>
-
-
-      </div>
-    </div>
-
-    <div class="col-5 card border border-dark p-2">
-
-<!--         <div class="spinner-border text-primary loading" role="status" *ngIf="loading">
-            <span class="sr-only">Loading...</span>
-        </div> -->
-        
-      <div fxLayout="column">
+      <!--         <div class="spinner-border text-primary loading" role="status" *ngIf="loading">
+              <span class="sr-only">Loading...</span>
+          </div> -->
+  
+      <!-- <div fxLayout="column">
         <div class="flex-p">
-            <mat-form-field>
-                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" [(ngModel)]="palabra_busqueda">
-              </mat-form-field>
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter"
+              [(ngModel)]="palabra_busqueda">
+          </mat-form-field>
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
             <ng-container matColumnDef="select">
               <th mat-header-cell *matHeaderCellDef>
@@ -147,7 +36,7 @@
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
               <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
             </ng-container>
-
+  
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
           </table>
@@ -156,8 +45,133 @@
           [pageSizeOptions]="[5, 10, 20]">
         </mat-paginator>
       </div>
-
-
+      <div class="col-12 justify-content-center text-center mt-5">
+        <button mat-raised-button color="primary">Terminar Cotización</button>
+      </div> -->
+  
+  
+  
+      <p-pickList [source]="equipoSource" [target]="equipoTarget" sourceHeader="Equipos" targetHeader="Seleccionados"
+        [responsive]="true" filterBy="nombre" dragdrop="true" sourceFilterPlaceholder="Busca equipo"
+        targetFilterPlaceholder="Buscar equipo" [sourceStyle]="{'height':'300px'}" [targetStyle]="{'height':'300px'}">
+        <ng-template let-equipo pTemplate="item">
+          <div class="ui-helper-clearfix">
+            <!--         <img src="assets/showcase/images/demo/car/{{car.brand}}.png" style="display:inline-block;margin:2px 0 2px 2px" width="48"> -->
+            <div style="font-size:14px;float:right;margin:15px 5px 0 0">{{equipo.nombre}} - {{equipo.fkTipo}} </div>
+          </div>
+        </ng-template>
+      </p-pickList>
+  
+  
     </div>
+  
 
-  </div>
+
+    <form action="">
+        <hr class="w-75 bg-light mx-auto my-4">
+
+
+        <div class="row my-2 justify-content-around">
+      
+
+              <span class="ui-float-label">
+                  <input id="float-input" type="text" size="30" pInputText> 
+                  <label for="float-input">Empresa</label>
+              </span>
+    
+          
+      
+       
+              <span class="ui-float-label">
+                  <input id="float-input" type="text" size="30" pInputText> 
+                  <label for="float-input">Vigencia</label>
+              </span>
+        
+      
+      
+              <span class="ui-float-label">
+                  <input id="float-input" type="text" size="30" pInputText> 
+                  <label for="float-input">Codigo cotización</label>
+              </span>
+          
+          
+        </div>
+      
+        <div class="row my-2 justify-content-around">
+          
+          
+            <h3 class="first">Single</h3>
+            <p-dropdown [options]="metodosDePago" [(ngModel)]="pago_seleccionado" placeholder="Selecionar forma de pago" optionLabel="name" [showClear]="true">
+                <p>Selected City: {{metodosDePago ? metodosDePago.name : 'none'}}</p>
+              </p-dropdown>
+            <p></p>
+            
+
+          <span class="ui-float-label">
+              <input id="float-input" type="text" size="30" pInputText> 
+              <label for="float-input">Vigencia</label>
+          </span>
+          
+      
+          <div class="col-3">
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" placeholder="Fecha de entrega">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+      
+          </div>
+      
+        </div>
+      
+        <div class="row my-2 justify-content-around">
+      
+      
+            <mat-form-field>
+              <mat-select placeholder="Tipo Servicio" #singleSelect>
+                <mat-option>
+                  <ngx-mat-select-search [placeholderLabel]="'Nombre del cliente'" [(ngModel)]="palabra_busqueda"
+                    [noEntriesFoundLabel]="'No se encontró el cliente'"></ngx-mat-select-search>
+                </mat-option>
+                <mat-option *ngFor="let cliente of clientes | filter:palabra_busqueda" [value]="cliente">
+                  {{cliente.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+      
+     
+            <mat-form-field>
+              <mat-select placeholder="Estado" #singleSelect>
+                <mat-option>
+                  <ngx-mat-select-search [placeholderLabel]="'Resposable'" [(ngModel)]="palabra_busqueda"
+                    [noEntriesFoundLabel]="'No se encontró el cliente'"></ngx-mat-select-search>
+                </mat-option>
+                <mat-option *ngFor="let cliente of clientes | filter:palabra_busqueda" [value]="cliente">
+                  {{cliente.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+    
+            <div class="col-3">
+                <mat-form-field>
+                  <mat-select placeholder="Responsable" #singleSelect>
+                    <mat-option>
+                      <ngx-mat-select-search [placeholderLabel]="'Nombre del cliente'" [(ngModel)]="palabra_busqueda"
+                        [noEntriesFoundLabel]="'No se encontró el cliente'"></ngx-mat-select-search>
+                    </mat-option>
+                    <mat-option *ngFor="let cliente of clientes | filter:palabra_busqueda" [value]="cliente">
+                      {{cliente.nombre}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+     
+          
+    
+        </div>
+      
+    </form>
+
+
+</div>
+

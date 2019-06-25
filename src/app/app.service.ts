@@ -62,14 +62,15 @@ export class AppService {
     return this.http.get(this.url + 'terceros/list', httpOptions);
   }
 
-  // @Get Cotizaciones
-  public getCotizaciones() {
-    return this.http.get(this.url + 'cotizaciones/list', httpOptions);
-  }
   //@Get clientes
   public getClientes(){
     return this.http.get(this.url + 'clientes/list',httpOptions);
   }
+  // @Get Cotizaciones
+  public getCotizaciones() {
+    return this.http.get(this.url + 'cotizaciones/list', httpOptions);
+  }
+
   //@Get parametro por grupo
   public getParametroGrupo(){
     return this.http.get(this.url + 'parametro/filtro_empresa_grupo/1/2', httpOptions)

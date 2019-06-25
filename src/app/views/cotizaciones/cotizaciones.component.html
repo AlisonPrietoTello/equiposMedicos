@@ -6,12 +6,17 @@
   }
 </style>
 
-<button type="button" class="btn btn-brand btn-behance mb-2 mr-3"
- *ngIf="estado=='cotizar'" (click)="estado='Listar';">Atrás</button>
-
-<div class="container-fluid " *ngIf="estado=='Listar'">
-
-  <div class="mat-elevation-z8 w-100 row p-3">
+<div class="container-fluid" [ngClass]="{'card': estado=='cotizar'}">
+  <div *ngIf="estado=='cotizar'" class="row d-flex">
+    <div class="col-5 col-md-4 col-xl-2">
+        <button type="button" class="btn btn-info btn-behance my-2 mr-3 w-50" style="width: 8%;"
+        (click)="estado='Listar';">Atrás</button>
+    </div>
+    <div class="col-12 col-md-4 col-lg-8 w-100 text-center mt-2">
+        <h2 class="font-weight-bold">Cotizar</h2>
+    </div>
+  </div>
+  <div class="mat-elevation-z8 w-75 row p-3" *ngIf="estado=='Listar'">
     <div class="row w-100">
     <div class="col-3">
       <mat-form-field>
@@ -127,9 +132,15 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
 
+  <div>
+
+  </div>
+
+  <div class="container-fluid" *ngIf="estado=='cotizar'">
+      <app-cotizar ></app-cotizar>
+
+  </div>
 
 </div>
 
-<div class="container-fluid" *ngIf="estado=='cotizar'">
-  <app-cotizar></app-cotizar>
-</div>
+
